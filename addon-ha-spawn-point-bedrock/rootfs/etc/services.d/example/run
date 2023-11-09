@@ -14,6 +14,13 @@ message=$(bashio::config 'message')
 
 ## Print the message the user supplied, defaults to "Hello World..."
 bashio::log.info "${message:="Hello World..."}"
+message=$(bashio::config 'server_name')
+bashio::log.info "${message:="Komisch"}"
+message=$(bashio::config 'level_name')
+bashio::log.info "${message:="Komisch"}"
+
+bashio::config 'level_seed'
+
 
 ## Run your program
 exec /usr/bin/my_program

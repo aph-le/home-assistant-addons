@@ -2,3 +2,12 @@ configuration:
   message:
     name: Message
     description: The message that will be printed to the log when starting this example add-on.
+  eula:
+    name: EULA
+    description: End User License Agreement - has to be on for starting the server
+  version:
+    name: Version
+    description: Minecraft Bedrock Server Version
+  level_name:
+    name: World Name
+    description: Name of the Minecraft world. If it doesn't exits, it will be created.
