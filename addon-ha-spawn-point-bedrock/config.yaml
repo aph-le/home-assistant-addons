@@ -24,7 +24,7 @@ options:
 schema:
   eula: bool
   server_name: str
-  version: "match(^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)|(LATEST)$)"
+  version: "match(^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)|(LATEST)$)"
   level_name: str
   level_gamemode: list(survival|creative|adventure)
   level_difficulty: list(peaceful|easy|normal|hard)

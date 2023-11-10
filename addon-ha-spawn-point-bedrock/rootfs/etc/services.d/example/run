@@ -9,6 +9,18 @@
 # Declare variables
 declare message
 
+## EULA check
+EULA=$(bashio::config 'eula')
+if [[ ${EULA^^} != TRUE ]]; then
+  echo
+  echo "EULA must be set to TRUE to indicate agreement with the Minecraft End User License"
+  echo "See https://minecraft.net/terms"
+  echo
+  echo "Current value is '${EULA}'"
+  echo
+  exit 1
+fi
+
 ## Print banner
 ./banner.sh
 
