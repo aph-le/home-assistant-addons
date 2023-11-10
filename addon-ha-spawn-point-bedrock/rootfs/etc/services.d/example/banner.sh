@@ -36,4 +36,8 @@ if bashio::supervisor.ping; then
         ' https://github.com/aph-le/ha-spawn-point-bedrock'
     bashio::log.blue \
         '-----------------------------------------------------------'
+    bashio::log.green " Server Name: $(bashio::config 'server_name')"
+    bashio::log.green " World Name: $(bashio::config 'level_name')"
+    bashio::log.blue \
+        '-----------------------------------------------------------'
 fi
