@@ -1,7 +1,7 @@
 configuration:
   eula:
     name: EULA
-    description: End User License Agreement - has to be on for starting the server.
+    description: End User License Agreement - has to be on for starting the server. See https://minecraft.net/terms
   server_name:
     name: Server Name
     description: Name of the Minecraft Bedrock Server. (server-name)
@@ -14,6 +14,12 @@ configuration:
   level_seed:
     name: Seed
     description: Seed for the creation of a new world. It is only needed if a new world is created. (level-seed)
+  level_difficulty:
+    name: Difficulty
+    description: Difficulty of the world. (difficulty)
+  level_gamemode:
+    name: Gamemode:
+    description: Game mode for new players. (gamemode)
   online_mode:
     name: Force Xbox Live
     descriotion: Require Xbox Live authentication for clients. (online-mode)
