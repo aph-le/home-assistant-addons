@@ -1,22 +1,22 @@
 configuration:
-  message:
-    name: Message
-    description: The message that will be printed to the log when starting this example add-on.
   eula:
     name: EULA
     description: End User License Agreement - has to be on for starting the server.
   server_name:
     name: Server Name
-    description: Name of the Minecraft Bedrock Server. (server_name)
+    description: Name of the Minecraft Bedrock Server. (server-name)
   version:
     name: Version
     description: Minecraft Bedrock Server Version.
   level_name:
     name: World Name
-    description: Name of the Minecraft world. If it doesn't exits, it will be created. (level_name)
+    description: Name of the Minecraft world. If it doesn't exits, it will be created. (level-name)
   level_seed:
     name: Seed
-    description: Seed for the creation of a new world. It is only needed if a new world is created. (level_seed)
+    description: Seed for the creation of a new world. It is only needed if a new world is created. (level-seed)
   online_mode:
     name: Force Xbox Live
-    descriotion: Require Xbox Live authentication for clients. (online_mode)
+    descriotion: Require Xbox Live authentication for clients. (online-mode)
+  enable_lan_visibilty:
+    name: LAN Visibility
+    description: Listen and respond to clients that are looking for servers on the LAN. (enable-lan-visibility)
