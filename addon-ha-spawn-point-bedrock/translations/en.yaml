@@ -17,3 +17,6 @@ configuration:
   level_seed:
     name: Seed
     description: Seed for the creation of a new world. It is only needed if a new world is created. (level_seed)
+  online_mode:
+    name: Force Xbox Live
+    descriotion: Require Xbox Live authentication for clients. (online_mode)
