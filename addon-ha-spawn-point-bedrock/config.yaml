@@ -18,7 +18,7 @@ options:
   eula: true
   server_name: MC Spawn Server
   version: LATEST
-  level_name: MC Spawn World
+  level_name: MC Spawn Point World
   level_gamemode: survival
   level_difficulty: easy
 schema:
