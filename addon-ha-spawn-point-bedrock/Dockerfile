@@ -10,3 +10,8 @@ RUN \
 
 # Copy root filesystem
 COPY rootfs /
+
+# Corrects permissions for s6 v3
+RUN if [ -d /etc/services.d ]; then chmod -R 755 /etc/services.d; fi && \
+    if [ -d /etc/services.d/example ]; then chmod -R 755 /etc/services.d/example; fi && \
+    if [ -f /etc/services.d/example/banner.sh ]; then chmod 755 /etc/services.d/example/banner.sh; fi

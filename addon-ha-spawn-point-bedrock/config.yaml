@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: HA Spawn Point Bedrock
-version: "0.0.2"
+version: "0.0.1"
 slug: ha-spawn-point-bedrock
 description: Minecraft Server Addon Bedrock Edition
 #url: "https://github.com/home-assistant/addons-example/tree/main/example"
@@ -19,17 +19,12 @@ options:
   server_name: MC Spawn Server
   version: LATEST
   level_name: MC Spawn World
-  level_seed:
-  online_mode: true
-  enable_lan_visibilty: true
-  message: "Hello world..."
 schema:
   eula: bool
   server_name: str
-  version: str
+  version: "match(^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)|(LATEST)$)"
   level_name: str
   level_seed: "str?"
-  online_mode: bool
-  enable_lan_visibilty: bool
-  message: "str?"
+  online_mode: bool?
+  enable_lan_visibilty: bool?
 #image: "ghcr.io/home-assistant/{arch}-addon-example"
