@@ -1,7 +1,7 @@
 configuration:
   eula:
     name: EULA
-    description: End User License Agreement - has to be on for starting the server.
+    description: End User License Agreement - has to be on for starting the server. See https://minecraft.net/terms
   server_name:
     name: Server Name
     description: Name of the Minecraft Bedrock Server. (server-name)
@@ -21,7 +21,7 @@ configuration:
     name: Gamemode
     description: Game mode for new players. (gamemode)
   online_mode:
-    name: Force Xbox Live
+    name: Require Xbox Live Account
     description: Require Xbox Live authentication for clients. (online-mode)
   enable_lan_visibilty:
     name: LAN Visibility
