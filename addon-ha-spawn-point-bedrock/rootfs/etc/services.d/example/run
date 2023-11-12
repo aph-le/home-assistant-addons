@@ -11,13 +11,14 @@ declare message
 
 ## EULA check
 EULA=$(bashio::config 'eula')
+DOWNLOAD_SAVE_DIR=/addon_config/download_
+DOWNLOAD_SAVE_DIR+=addon_spawn_point
+
+
 if [[ ${EULA^^} != TRUE ]]; then
-  echo
-  echo "EULA must be set to TRUE to indicate agreement with the Minecraft End User License"
-  echo "See https://minecraft.net/terms"
-  echo
-  echo "Current value is '${EULA}'"
-  echo
+  bashio::log.red "EULA must be set to TRUE to indicate agreement with the Minecraft End User License"
+  bashio::log.red "See https://minecraft.net/terms"
+  bashio::log.red "Current value is '${EULA}'"
   exit 1
 fi
 
@@ -26,10 +27,26 @@ fi
 
 
 ## Get the 'server_name' key from the user config options.
-message=$(bashio::config 'server_name')
+#message=$(bashio::config 'server_name')
 
 ## Print the message the user supplied, defaults to "Hello World..."
-bashio::log.info "${message:="Hello World..."}"
+#bashio::log.info "${message:="Hello World..."}"
+bashio::log.green "Download Directory ${DOWNLOAD_SAVE_DIR}"
 
+if [[ ! -d  ${DOWNLOAD_SAVE_DIR} ]]; then
+  bashio::log "Creating Download Directory"
+  mkdir ${DOWNLOAD_SAVE_DIR}
+  chmod -R 666 ${DOWNLOAD_SAVE_DIR}
+fi
+
+DOWNLOAD_FILE=bedrock-server-1.20.41.02.zip
+
+if [[ ! -f "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" ]]; then
+  wget "https://minecraft.azureedge.net/bin-linux/${DOWNLOAD_FILE}" -P ${DOWNLOAD_SAVE_DIR}/
+else
+  bashio::log.green "${DOWNLOAD_FILE} already downloaded"
+fi
+
+exec python3 /usr/bin/mc_port_proxy.py
 ## Run your program
-exec /usr/bin/my_program
+#exec /usr/bin/my_program
