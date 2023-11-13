@@ -11,12 +11,15 @@ ports:
   19132/udp: "19132"
 ports_description:
   19132/udp: Minecraft Server Port
+host_network: true
 init: false
 map:
-  - share:rw
+  #- share:rw
+  #- addon_config:rw
+  - addons:rw
 options:
   eula: true
-  server_name: MC Spawn Server
+  server_name: MC Spawn Point Server
   version: LATEST
   level_name: MC Spawn Point World
   level_gamemode: survival
@@ -24,11 +27,12 @@ options:
 schema:
   eula: bool
   server_name: str
-  version: "match(^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)|(LATEST)$)"
+  version: "match(^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)|(LATEST)$)"
   level_name: str
   level_gamemode: list(survival|creative|adventure)
   level_difficulty: list(peaceful|easy|normal|hard)
   level_seed: "str?"
   online_mode: bool?
   enable_lan_visibilty: bool?
+  enable_port_proxy: bool?
 #image: "ghcr.io/home-assistant/{arch}-addon-example"
