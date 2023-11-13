@@ -15,8 +15,6 @@ This repository contains the following add-ons
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
 ![Supports armhf Architecture][armhf-shield]
-![Supports armv7 Architecture][armv7-shield]
-![Supports i386 Architecture][i386-shield]
 
 _Example add-on to use as a blueprint for new add-ons._
 
@@ -44,3 +42,8 @@ Notes to developers after forking or using the github template feature:
 [armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
 [armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
+
+## References
+
+- Thanks to [itzg](https://github.com/itzg/docker-minecraft-bedrock-server) for the docker image inspiration.
+- Thanks to [williamcorsel](https://github.com/williamcorsel/hassio-addons) for the home assistant addon inspiration.

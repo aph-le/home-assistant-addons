@@ -10,7 +10,8 @@ RUN \
 # Install requirements for add-on
 RUN \
   apk add --no-cache \
-    python3
+    python3 \
+    unzip
 
 # Copy root filesystem
 COPY rootfs /
@@ -19,3 +20,6 @@ COPY rootfs /
 RUN if [ -d /etc/services.d ]; then chmod -R 755 /etc/services.d; fi && \
     if [ -d /etc/services.d/example ]; then chmod -R 755 /etc/services.d/example; fi && \
     if [ -f /etc/services.d/example/banner.sh ]; then chmod 755 /etc/services.d/example/banner.sh; fi
+
+# So let's set it to our add-on persistent data directory.
+WORKDIR /data

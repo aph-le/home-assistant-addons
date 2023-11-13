@@ -14,8 +14,9 @@ ports_description:
 host_network: true
 init: false
 map:
-  - share:rw
-  - addon_config:rw
+  #- share:rw
+  #- addon_config:rw
+  - addons:rw
 options:
   eula: true
   server_name: MC Spawn Point Server

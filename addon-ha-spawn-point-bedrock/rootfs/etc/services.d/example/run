@@ -9,8 +9,9 @@
 # Declare variables
 declare message
 
-DOWNLOAD_SAVE_DIR=/addon_config/download_
-DOWNLOAD_SAVE_DIR+=addon_spawn_point
+DOWNLOAD_SAVE_DIR=/data/download
+INSTALL_DIR=/data/bedrock_server
+#DOWNLOAD_SAVE_DIR+=addon_spawn_point
 
 ## EULA check
 EULA=$(bashio::config 'eula')
@@ -46,6 +47,21 @@ if [[ ! -f "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" ]]; then
 else
   bashio::log.green "${DOWNLOAD_FILE} already downloaded"
 fi
+
+if [[ ! -d  ${INSTALL_DIR} ]]; then
+  bashio::log "Creating Install Directory"
+  mkdir ${INSTALL_DIR}
+  chmod -R 666 ${DOWNLOAD_SAVE_DIR}
+fi
+
+if [[ ! -f "${INSTALL_DIR}/bedrock-server-1.20.41.02" ]]; then
+  bashio::log "Installing new version"
+  unzip -q -n "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -d ${INSTALL_DIR}
+  mv "${INSTALL_DIR}/bedrock_server" "${INSTALL_DIR}/bedrock_server-1.20.41.02"
+else
+  bashio::log "Already Installed"
+fi
+
 
 exec python3 /usr/bin/mc_port_proxy.py
 ## Run your program
