@@ -9,11 +9,11 @@
 # Declare variables
 declare message
 
-## EULA check
-EULA=$(bashio::config 'eula')
 DOWNLOAD_SAVE_DIR=/addon_config/download_
 DOWNLOAD_SAVE_DIR+=addon_spawn_point
 
+## EULA check
+EULA=$(bashio::config 'eula')
 
 if [[ ${EULA^^} != TRUE ]]; then
   bashio::log.red "EULA must be set to TRUE to indicate agreement with the Minecraft End User License"
