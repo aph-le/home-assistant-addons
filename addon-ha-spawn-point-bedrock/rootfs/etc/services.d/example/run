@@ -7,15 +7,15 @@
 # Add your code here
 
 # Declare variables
-declare message
-
 DOWNLOAD_SAVE_DIR=/data/download
 INSTALL_DIR=/data/bedrock_server
-#DOWNLOAD_SAVE_DIR+=addon_spawn_point
+RUN_VERSION=$(bashio::config 'version')
+
+## Print banner
+./banner.sh
 
 ## EULA check
 EULA=$(bashio::config 'eula')
-
 if [[ ${EULA^^} != TRUE ]]; then
   bashio::log.red "EULA must be set to TRUE to indicate agreement with the Minecraft End User License"
   bashio::log.red "See https://minecraft.net/terms"
@@ -23,15 +23,14 @@ if [[ ${EULA^^} != TRUE ]]; then
   exit 1
 fi
 
-## Print banner
-./banner.sh
+if [[ "$RUN_VERSION" = "LATEST" ]]; then
+  wget https://mc-bds-helper.vercel.app/api/latest -O /data/latest_version_download_link.txt > /dev/null 2>&1
+  if [[ -f "/data/latest_version_download_link.txt" ]]; then
+    DOWNLOAD_URL=$(cat /data/latest_version_download_link.txt)
+    bashio::log.green "Download URL '${DOWNLOAD_URL}'"
+  fi
+fi
 
-
-## Get the 'server_name' key from the user config options.
-#message=$(bashio::config 'server_name')
-
-## Print the message the user supplied, defaults to "Hello World..."
-#bashio::log.info "${message:="Hello World..."}"
 bashio::log.green "Download Directory ${DOWNLOAD_SAVE_DIR}"
 
 if [[ ! -d  ${DOWNLOAD_SAVE_DIR} ]]; then
@@ -62,7 +61,15 @@ else
   bashio::log "Already Installed"
 fi
 
+cd "${INSTALL_DIR}" || exit 1
 
-exec python3 /usr/bin/mc_port_proxy.py
+chmod a+x ./bedrock_server-1.20.41.02
+
+export LD_LIBRARY_PATH=.
+./bedrock_server-1.20.41.02
+
+
+
+#exec python3 /usr/bin/mc_port_proxy.py
 ## Run your program
 #exec /usr/bin/my_program
