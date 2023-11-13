@@ -1,17 +1,20 @@
-# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
 ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ${BUILD_FROM}
 
-# Execute during the build of the image
-ARG TEMPIO_VERSION BUILD_ARCH
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 RUN \
-    curl -sSLf -o /usr/bin/tempio \
-    "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
-# Install requirements for add-on
+    apt-get update -y
 RUN \
-  apk add --no-cache \
-    python3 \
-    unzip
+    apt-get upgrade -y
+
+RUN \
+    apt-get install python3 -y
+RUN \
+    apt-get install unzip -y
+RUN \
+    apt-get install wget -y
 
 # Copy root filesystem
 COPY rootfs /
@@ -21,5 +24,10 @@ RUN if [ -d /etc/services.d ]; then chmod -R 755 /etc/services.d; fi && \
     if [ -d /etc/services.d/example ]; then chmod -R 755 /etc/services.d/example; fi && \
     if [ -f /etc/services.d/example/banner.sh ]; then chmod 755 /etc/services.d/example/banner.sh; fi
 
+#/addons/hamc-server-bedrock/data
+#WORKDIR /addons/local_ha-spawn-point-bedrock/data
+
 # So let's set it to our add-on persistent data directory.
-WORKDIR /data
+#WORKDIR /data
+
+#SHELL ["/bin/bash", "-o", "pipefail", "-c"]
