@@ -65,6 +65,13 @@ cd "${INSTALL_DIR}" || exit 1
 
 chmod a+x ./bedrock_server-1.20.41.02
 
+#create server configuration based on ha ui configuration
+chmod +x /usr/bin/set_property
+/usr/bin/set_property server-name "$(bashio::config 'server_name')" server.properties
+/usr/bin/set_property level-name "$(bashio::config 'level_name')" server.properties
+/usr/bin/set_property gamemode "$(bashio::config 'level_gamemode')" server.properties
+/usr/bin/set_property difficulty "$(bashio::config 'level_difficulty')" server.properties
+
 export LD_LIBRARY_PATH=.
 ./bedrock_server-1.20.41.02
 
