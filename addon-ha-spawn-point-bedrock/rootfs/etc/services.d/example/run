@@ -36,7 +36,7 @@ bashio::log.green "Download Directory ${DOWNLOAD_SAVE_DIR}"
 if [[ ! -d  ${DOWNLOAD_SAVE_DIR} ]]; then
   bashio::log "Creating Download Directory"
   mkdir ${DOWNLOAD_SAVE_DIR}
-  chmod -R 666 ${DOWNLOAD_SAVE_DIR}
+  chmod -R 777 ${DOWNLOAD_SAVE_DIR}
 fi
 
 DOWNLOAD_FILE=bedrock-server-1.20.41.02.zip
@@ -50,10 +50,12 @@ fi
 if [[ ! -d  ${INSTALL_DIR} ]]; then
   bashio::log "Creating Install Directory"
   mkdir ${INSTALL_DIR}
-  chmod -R 666 ${DOWNLOAD_SAVE_DIR}
+  chmod -R 777 ${INSTALL_DIR}
 fi
 
-if [[ ! -f "${INSTALL_DIR}/bedrock-server-1.20.41.02" ]]; then
+SERVER_FILE_NAME=bedrock_server-1.20.41.02
+
+if [[ ! -f "${INSTALL_DIR}/${SERVER_FILE_NAME}" ]]; then
   bashio::log "Installing new version"
   unzip -q -n "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -d ${INSTALL_DIR}
   mv "${INSTALL_DIR}/bedrock_server" "${INSTALL_DIR}/bedrock_server-1.20.41.02"
@@ -63,8 +65,6 @@ fi
 
 cd "${INSTALL_DIR}" || exit 1
 
-chmod a+x ./bedrock_server-1.20.41.02
-
 #create server configuration based on ha ui configuration
 chmod +x /usr/bin/set_property
 /usr/bin/set_property server-name "$(bashio::config 'server_name')" server.properties
@@ -72,6 +72,8 @@ chmod +x /usr/bin/set_property
 /usr/bin/set_property gamemode "$(bashio::config 'level_gamemode')" server.properties
 /usr/bin/set_property difficulty "$(bashio::config 'level_difficulty')" server.properties
 
+#prepare and start bedrock server
+chmod a+x ./bedrock_server-1.20.41.02
 export LD_LIBRARY_PATH=.
 ./bedrock_server-1.20.41.02
 
