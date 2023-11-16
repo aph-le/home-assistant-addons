@@ -71,7 +71,6 @@ fi
 cd "${INSTALL_DIR}" || exit 1
 
 #create server configuration based on ha ui configuration
-chmod +x /usr/bin/set_property
 bashio::log "Create Bedrock Server Configuration"
 hasp::config.update_server server_name server-name ./server.properties
 hasp::config.update_server level_name level-name ./server.properties
