@@ -11,6 +11,10 @@ DOWNLOAD_SAVE_DIR=/data/download
 INSTALL_DIR=/data/bedrock_server
 RUN_VERSION=$(bashio::config 'version')
 
+# Stores the location of this library
+readonly __HASP_LIB_DIR=$(dirname "${BASH_SOURCE[0]}")
+source "${__HASP_LIB_DIR}/hasp_config.sh"
+
 ## Print banner
 ./banner.sh
 
@@ -68,17 +72,15 @@ cd "${INSTALL_DIR}" || exit 1
 
 #create server configuration based on ha ui configuration
 chmod +x /usr/bin/set_property
-bashio::log "Create configuration"
-/usr/bin/set_property server-name "$(bashio::config 'server_name')" server.properties
-/usr/bin/set_property level-name "$(bashio::config 'level_name')" server.properties
-/usr/bin/set_property gamemode "$(bashio::config 'level_gamemode')" server.properties
-/usr/bin/set_property difficulty "$(bashio::config 'level_difficulty')" server.properties
-if bashio::config.exists 'level_seed' ; then
-  /usr/bin/set_property level-seed "$(bashio::config 'level_seed')" server.properties
-  echo "HALLO"
-else
-  echo "No Value"
-fi
+bashio::log "Create Bedrock Server Configuration"
+hasp::config.update_server server_name server-name ./server.properties
+hasp::config.update_server level_name level-name ./server.properties
+hasp::config.update_server level_gamemode gamemode ./server.properties
+hasp::config.update_server level_difficulty difficulty ./server.properties
+hasp::config.update_server level_seed level-seed ./server.properties
+
+
+
 
 #prepare and start bedrock server
 bashio::log "Starting Bedrock Server"
