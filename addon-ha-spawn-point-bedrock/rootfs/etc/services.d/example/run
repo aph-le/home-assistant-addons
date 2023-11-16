@@ -24,7 +24,7 @@ if [[ ${EULA^^} != TRUE ]]; then
 fi
 
 if [[ "$RUN_VERSION" = "LATEST" ]]; then
-  wget https://mc-bds-helper.vercel.app/api/latest -O /data/latest_version_download_link.txt > /dev/null 2>&1
+  curl https://mc-bds-helper.vercel.app/api/latest -o /data/latest_version_download_link.txt > /dev/null 2>&1
   if [[ -f "/data/latest_version_download_link.txt" ]]; then
     DOWNLOAD_URL=$(cat /data/latest_version_download_link.txt)
     bashio::log.green "Download URL '${DOWNLOAD_URL}'"
@@ -42,7 +42,7 @@ fi
 DOWNLOAD_FILE=bedrock-server-1.20.41.02.zip
 
 if [[ ! -f "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" ]]; then
-  wget "https://minecraft.azureedge.net/bin-linux/${DOWNLOAD_FILE}" -P ${DOWNLOAD_SAVE_DIR}/
+  curl "https://minecraft.azureedge.net/bin-linux/${DOWNLOAD_FILE}" -o "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}"
 else
   bashio::log.green "${DOWNLOAD_FILE} already downloaded"
 fi

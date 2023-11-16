@@ -13,8 +13,6 @@ RUN \
     apt-get install python3 -y
 RUN \
     apt-get install unzip -y
-RUN \
-    apt-get install wget -y
 
 # Copy root filesystem
 COPY rootfs /
