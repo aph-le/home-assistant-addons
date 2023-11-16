@@ -18,14 +18,14 @@ function hasp::config.update_server() {
     local NEW_VALUE=""
 
     OLD_VALUE=$(hasp::config._get_property "${mc_config_key}" "${mc_config_file}")
-    bashio::log.green "Old Value ${OLD_VALUE}"
 
     if bashio::config.exists "${ha_config_key}" ; then
         NEW_VALUE="$(bashio::config "${ha_config_key}")"
-        bashio::log.green "New Value ${NEW_VALUE}"
 
-        hasp::config._set_property "${mc_config_key}" "$(bashio::config "${ha_config_key}")" "${mc_config_file}"
-        bashio::log "Config: Update ${ha_config_key}"
+        if [ ! "${OLD_VALUE}" == "${NEW_VALUE}" ] ; then
+            bashio::log.green "Config: update server entry: ${mc_config_key} = ${NEW_VALUE}"
+            hasp::config._set_property "${mc_config_key}" "$(bashio::config "${ha_config_key}")" "${mc_config_file}"
+        fi
     fi
 }
 
