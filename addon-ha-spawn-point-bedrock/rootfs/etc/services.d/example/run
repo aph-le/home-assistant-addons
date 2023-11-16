@@ -42,7 +42,8 @@ fi
 DOWNLOAD_FILE=bedrock-server-1.20.41.02.zip
 
 if [[ ! -f "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" ]]; then
-  curl "https://minecraft.azureedge.net/bin-linux/${DOWNLOAD_FILE}" -o "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}"
+  bashio::log.yellow "Download Verison %{RUN_VERSION} started ... please wait"
+  curl "https://minecraft.azureedge.net/bin-linux/${DOWNLOAD_FILE}" -o "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -# > /dev/null 2>&1
 else
   bashio::log.green "${DOWNLOAD_FILE} already downloaded"
 fi
@@ -58,24 +59,32 @@ SERVER_FILE_NAME=bedrock_server-1.20.41.02
 if [[ ! -f "${INSTALL_DIR}/${SERVER_FILE_NAME}" ]]; then
   bashio::log "Installing new version"
   unzip -q -n "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -d ${INSTALL_DIR}
-  mv "${INSTALL_DIR}/bedrock_server" "${INSTALL_DIR}/bedrock_server-1.20.41.02"
+  mv "${INSTALL_DIR}/bedrock_server" "${INSTALL_DIR}/${SERVER_FILE_NAME}"
 else
-  bashio::log "Already Installed"
+  bashio::log.green "${DOWNLOAD_FILE} already Installed"
 fi
 
 cd "${INSTALL_DIR}" || exit 1
 
 #create server configuration based on ha ui configuration
 chmod +x /usr/bin/set_property
+bashio::log "Create configuration"
 /usr/bin/set_property server-name "$(bashio::config 'server_name')" server.properties
 /usr/bin/set_property level-name "$(bashio::config 'level_name')" server.properties
 /usr/bin/set_property gamemode "$(bashio::config 'level_gamemode')" server.properties
 /usr/bin/set_property difficulty "$(bashio::config 'level_difficulty')" server.properties
+if bashio::config.exists 'level_seed' ; then
+  /usr/bin/set_property level-seed "$(bashio::config 'level_seed')" server.properties
+  echo "HALLO"
+else
+  echo "No Value"
+fi
 
 #prepare and start bedrock server
-chmod a+x ./bedrock_server-1.20.41.02
+bashio::log "Starting Bedrock Server"
+chmod a+x "./${SERVER_FILE_NAME}"
 export LD_LIBRARY_PATH=.
-./bedrock_server-1.20.41.02
+"./${SERVER_FILE_NAME}"
 
 
 
