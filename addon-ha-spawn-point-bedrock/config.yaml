@@ -14,8 +14,6 @@ ports_description:
 host_network: true
 init: false
 map:
-  #- share:rw
-  #- addon_config:rw
   - addons:rw
 options:
   eula: true
