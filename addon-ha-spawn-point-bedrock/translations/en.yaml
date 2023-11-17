@@ -8,7 +8,7 @@ configuration:
   version:
     name: Version
     description: Minecraft Bedrock Server Version.
-  level_name:
+  level-name:
     name: World Name
     description: Name of the Minecraft world. If it doesn't exits, it will be created. (level-name)
   level_seed:
