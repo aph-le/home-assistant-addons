@@ -19,13 +19,18 @@ Add-on documentation: <https://developers.home-assistant.io/docs/add-ons>
 
 This repository contains the following add-ons
 
+<!--
 ### [Spawn Point Bedrock](./addon-ha-spawn-point-bedrock)
+ -->
+
+### Spawn Point Bedrock
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
 ![Supports armhf Architecture][armhf-shield]
 
 _Minecraft Server Bedrock Edition_
+
 A Minecraft Server Bedrock which is fully configured with the Home Assistant add-on configuartion UI.
 
 <!--
