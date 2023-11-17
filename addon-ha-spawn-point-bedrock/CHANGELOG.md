@@ -2,8 +2,9 @@
 
 ## 0.0.2 - New base image
 
-- Bump to base image python - version 3.18
+- used debian stable image as base
 - Changed logo and icon
+- removed sample script
 
 ## 0.0.1 - Initial release
 
