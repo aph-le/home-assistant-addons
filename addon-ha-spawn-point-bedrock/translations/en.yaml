@@ -17,7 +17,7 @@ configuration:
   level_difficulty:
     name: Difficulty
     description: Difficulty of the world. (difficulty)
-  level_gamemode:
+  gamemode:
     name: Gamemode
     description: Game mode for new players. (gamemode)
   online_mode:

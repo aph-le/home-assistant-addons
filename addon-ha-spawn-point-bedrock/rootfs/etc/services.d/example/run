@@ -74,7 +74,7 @@ cd "${INSTALL_DIR}" || exit 1
 bashio::log "Create Bedrock Server Configuration"
 hasp::config.update_server server-name server-name ./server.properties
 hasp::config.update_server level-name level-name ./server.properties
-hasp::config.update_server level_gamemode gamemode ./server.properties
+hasp::config.update_server gamemode gamemode ./server.properties
 hasp::config.update_server level_difficulty difficulty ./server.properties
 hasp::config.update_server level_seed level-seed ./server.properties
 
