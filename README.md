@@ -1,22 +1,37 @@
-# Example Home Assistant add-on repository
+# Home Assistant Addons Repository - aph-le
 
-This repository can be used as a "blueprint" for add-on development to help you get started.
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/aph-le/home-assistant-addons/main?style=plastic&logo=Github)
+![GitHub repo size](https://img.shields.io/github/repo-size/aph-le/home-assistant-addons?logo=Github)
+![GitHub language count](https://img.shields.io/github/languages/count/aph-le/home-assistant-addons?logo=Github)
+![GitHub top language](https://img.shields.io/github/languages/top/aph-le/home-assistant-addons?logo=Github)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/aph-le/home-assistant-addons/main?logo=Github)
 
+This repository contains several custom Home Assistans Addons for education, testing and more.
+To add this to your Home Assistant instance you can use the button below.
+
+[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Faph-le%2Fhome-assistant-addons)
+
+<!--
 Add-on documentation: <https://developers.home-assistant.io/docs/add-ons>
+ -->
 
-[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Faddons-example)
-
-## Add-ons
+## Addons
 
 This repository contains the following add-ons
 
-### [Example add-on](./example)
+<!--
+### [Spawn Point Bedrock](./addon-ha-spawn-point-bedrock)
+ -->
+
+### Spawn Point Bedrock
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
 ![Supports armhf Architecture][armhf-shield]
 
-_Example add-on to use as a blueprint for new add-ons._
+_Minecraft Server Bedrock Edition_
+
+A Minecraft Server Bedrock which is fully configured with the Home Assistant add-on configuartion UI.
 
 <!--
 
@@ -45,5 +60,5 @@ Notes to developers after forking or using the github template feature:
 
 ## References
 
-- Thanks to [itzg](https://github.com/itzg/docker-minecraft-bedrock-server) for the docker image inspiration.
-- Thanks to [williamcorsel](https://github.com/williamcorsel/hassio-addons) for the home assistant addon inspiration.
+- Thanks to [itzg](https://github.com/itzg/docker-minecraft-bedrock-server) for the minecraft server docker image inspiration.
+- Thanks to [williamcorsel](https://github.com/williamcorsel/hassio-addons) for the home assistant minecraft addon inspiration.

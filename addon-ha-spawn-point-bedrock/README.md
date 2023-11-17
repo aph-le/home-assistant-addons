@@ -1,4 +1,4 @@
-# ha-spawn-point-bedrock - Home Assistant Minecraft Server Addon
+# Spawn Point Bedrock - Home Assistant Minecraft Server Addon
 
 _Addon running a Minecraft Bedrock Sever on Home Assistant._
 
