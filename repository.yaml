@@ -1,4 +1,4 @@
 # https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
-name: ha-spawn-point-bedrock - Home Assistant Minecraft Server Addon
-url: "https://github.com/aph-le/ha-spawn-point-bedrock"
-maintainer: Alexander Philipp <awesome@example.com>
+name: Home Assistant Addons - aph-le
+url: "https://github.com/aph-le/home-assistant-addons"
+maintainer: Alexander Philipp
