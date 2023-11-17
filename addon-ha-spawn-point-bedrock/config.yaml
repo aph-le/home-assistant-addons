@@ -32,7 +32,7 @@ schema:
   gamemode: list(survival|creative|adventure)
   difficulty: list(peaceful|easy|normal|hard)
   level-seed: "str?"
-  online_mode: bool?
+  online-mode: bool?
   enable_lan_visibilty: bool?
   enable_port_proxy: bool?
 #image: "ghcr.io/home-assistant/{arch}-addon-example"

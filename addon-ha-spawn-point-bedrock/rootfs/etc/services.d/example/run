@@ -77,6 +77,7 @@ hasp::config.update_server level-name level-name ./server.properties
 hasp::config.update_server gamemode gamemode ./server.properties
 hasp::config.update_server difficulty difficulty ./server.properties
 hasp::config.update_server level-seed level-seed ./server.properties
+hasp::config.update_server online-mode online-mode ./server.properties
 
 
 
