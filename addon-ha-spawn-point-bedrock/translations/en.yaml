@@ -23,6 +23,6 @@ configuration:
   online-mode:
     name: Require Xbox Live Account
     description: Require Xbox Live authentication for clients. (online-mode)
-  enable_lan_visibilty:
+  enable-lan-visibilty:
     name: LAN Visibility
     description: Listen and respond to clients that are looking for servers on the LAN. (enable-lan-visibility)

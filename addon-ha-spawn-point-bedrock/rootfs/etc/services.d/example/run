@@ -78,6 +78,7 @@ hasp::config.update_server gamemode gamemode ./server.properties
 hasp::config.update_server difficulty difficulty ./server.properties
 hasp::config.update_server level-seed level-seed ./server.properties
 hasp::config.update_server online-mode online-mode ./server.properties
+hasp::config.update_server enable-lan-visibilty enable-lan-visibilty ./server.properties
 
 
 
