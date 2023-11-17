@@ -23,14 +23,14 @@ options:
   version: LATEST
   level-name: MC Spawn Point World
   gamemode: survival
-  level_difficulty: easy
+  difficulty: easy
 schema:
   eula: bool
   server-name: str
   version: "match(^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)|(LATEST)$)"
   level-name: str
   gamemode: list(survival|creative|adventure)
-  level_difficulty: list(peaceful|easy|normal|hard)
+  difficulty: list(peaceful|easy|normal|hard)
   level_seed: "str?"
   online_mode: bool?
   enable_lan_visibilty: bool?
