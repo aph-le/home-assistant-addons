@@ -11,7 +11,7 @@ configuration:
   level-name:
     name: World Name
     description: Name of the Minecraft world. If it doesn't exits, it will be created. (level-name)
-  level_seed:
+  level-seed:
     name: Seed
     description: Seed for the creation of a new world. It is only needed if a new world is created. (level-seed)
   difficulty:
