@@ -19,18 +19,18 @@ map:
   - addons:rw
 options:
   eula: true
-  server_name: MC Spawn Point Server
+  server-name: MC Spawn Point Server
   version: LATEST
-  level_name: MC Spawn Point World
-  level_gamemode: survival
-  level_difficulty: easy
+  level-name: MC Spawn Point World
+  gamemode: survival
+  difficulty: easy
 schema:
   eula: bool
-  server_name: str
+  server-name: str
   version: "match(^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)|(LATEST)$)"
-  level_name: str
-  level_gamemode: list(survival|creative|adventure)
-  level_difficulty: list(peaceful|easy|normal|hard)
+  level-name: str
+  gamemode: list(survival|creative|adventure)
+  difficulty: list(peaceful|easy|normal|hard)
   level_seed: "str?"
   online_mode: bool?
   enable_lan_visibilty: bool?
