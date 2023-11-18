@@ -2,13 +2,13 @@ configuration:
   eula:
     name: EULA
     description: End User License Agreement - has to be on for starting the server. See https://minecraft.net/terms
-  server-name:
+  server_name:
     name: Server Name
     description: Name of the Minecraft Bedrock Server. (server-name)
   version:
     name: Version
     description: Minecraft Bedrock Server Version.
-  level-name:
+  level_name:
     name: World Name
     description: Name of the Minecraft world. If it doesn't exits, it will be created. (level-name)
   level_seed:
@@ -23,6 +23,6 @@ configuration:
   online_mode:
     name: Require Xbox Live Account
     description: Require Xbox Live authentication for clients. (online-mode)
-  enable_lan_visibilty:
+  enable_lan_visibility:
     name: LAN Visibility
     description: Listen and respond to clients that are looking for servers on the LAN. (enable-lan-visibility)

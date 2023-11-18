@@ -72,11 +72,24 @@ cd "${INSTALL_DIR}" || exit 1
 
 #create server configuration based on ha ui configuration
 bashio::log "Create Bedrock Server Configuration"
-hasp::config.update_server server-name server-name ./server.properties
-hasp::config.update_server level-name level-name ./server.properties
+hasp::config.update_server server_name server-name ./server.properties
+hasp::config.update_server level_name level-name ./server.properties
 hasp::config.update_server gamemode gamemode ./server.properties
 hasp::config.update_server difficulty difficulty ./server.properties
 hasp::config.update_server level_seed level-seed ./server.properties
+hasp::config.update_server online_mode online-mode ./server.properties
+hasp::config.update_server enable_lan_visibility enable-lan-visibility ./server.properties
+
+if hasp::config._test_property enable-lan-visibility ./server.properties; then
+  echo "Ja"
+fi
+if hasp::config._test_property paul_ist_da ./server.properties; then
+  echo "Ja"
+fi
+if hasp::config._test_property level-seed ./server.properties; then
+  echo "Ja"
+fi
+
 
 
 
