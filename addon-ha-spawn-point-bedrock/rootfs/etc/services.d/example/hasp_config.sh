@@ -43,16 +43,16 @@ function hasp::config._set_property() {
         exit 1
     fi
     if [ -z "$2" ]; then
-        ashio::log.debug  "Key provided, but no value, breaking"
+        bashio::log.debug  "Key provided, but no value, breaking"
         exit 1
     fi
     if [ -z "$3" ]; then
-        eashio::log.debug  "No file provided or setPropertyFile is not set, exiting..."
+        bashio::log.debug  "No file provided or setPropertyFile is not set, exiting..."
         exit 1
     fi
 
     if [ "$3" ] && [ ! -f "$3" ]; then
-        eashio::log.debug  "File in command NOT FOUND!"
+        bashio::log.debug  "File in command NOT FOUND!"
         exit 1
     fi
 
@@ -74,4 +74,22 @@ function hasp::config._get_property() {
     if [[ $property =~ ^([ tab]*"$1"[ tab]*=)(.*) ]]; then
         echo "${BASH_REMATCH[2]}"
     fi
+}
+
+# ------------------------------------------------------------------------------
+# Tests if property exits in given file.
+#
+# Arguments:
+#   $1 key in file
+#   $2 filename
+# ------------------------------------------------------------------------------
+function hasp::config._test_property() {
+    bashio::log.red "Token test"
+
+    property=$(sed -n "/^[ tab]*$1[ tab]*/p" $2)
+    if [[ $property =~ ^([ tab]*"$1"[ tab]*=)(.*) ]]; then
+        return "${__BASHIO_EXIT_OK}"
+    fi
+
+    return "${__BASHIO_EXIT_NOK}"
 }
