@@ -1,10 +1,10 @@
 # Home Assistant Addons Repository - aph-le
 
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/aph-le/home-assistant-addons/main?style=plastic&logo=Github)
-![GitHub repo size](https://img.shields.io/github/repo-size/aph-le/home-assistant-addons?logo=Github)
-![GitHub language count](https://img.shields.io/github/languages/count/aph-le/home-assistant-addons?logo=Github)
-![GitHub top language](https://img.shields.io/github/languages/top/aph-le/home-assistant-addons?logo=Github)
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/aph-le/home-assistant-addons/main?logo=Github)
+![GitHub repo size](https://img.shields.io/github/repo-size/aph-le/home-assistant-addons?style=plastic&logo=Github)
+![GitHub language count](https://img.shields.io/github/languages/count/aph-le/home-assistant-addons?style=plastic&logo=Github)
+![GitHub top language](https://img.shields.io/github/languages/top/aph-le/home-assistant-addons?style=plastic&logo=Github)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/aph-le/home-assistant-addons/main?style=plastic&logo=Github)
 
 This repository contains several custom Home Assistans Addons for education, testing and more.
 To add this to your Home Assistant instance you can use the button below.
