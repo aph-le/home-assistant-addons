@@ -6,16 +6,22 @@
 #
 # Arguments:
 #   $1 key in home assistant addon config
-#   $2 key in bedrock server config
-#   $3 bedrock server config file
+#   $2 bedrock server config file
 # ------------------------------------------------------------------------------
 function hasp::config.update_server() {
     local ha_config_key=${1}
-    local mc_config_key=${2}
-    local mc_config_file=${3}
+    local mc_config_key=
+    local mc_config_file=${2}
 
     local OLD_VALUE=""
     local NEW_VALUE=""
+
+    bashio::log.yellow "HA key ${ha_config_key}"
+    bashio::log.yellow "MC key ${mc_config_key}"
+
+    #replace undercsored with dashes
+    mc_config_key=${ha_config_key//_/-}
+    bashio::log.yellow "HA2MC key ${mc_config_key}"
 
     OLD_VALUE=$(hasp::config._get_property "${mc_config_key}" "${mc_config_file}")
 
@@ -84,8 +90,6 @@ function hasp::config._get_property() {
 #   $2 filename
 # ------------------------------------------------------------------------------
 function hasp::config._test_property() {
-    bashio::log.red "Token test"
-
     property=$(sed -n "/^[ tab]*$1[ tab]*/p" $2)
     if [[ $property =~ ^([ tab]*"$1"[ tab]*=)(.*) ]]; then
         return "${__BASHIO_EXIT_OK}"
