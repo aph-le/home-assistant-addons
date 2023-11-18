@@ -16,12 +16,8 @@ function hasp::config.update_server() {
     local OLD_VALUE=""
     local NEW_VALUE=""
 
-    bashio::log.yellow "HA key ${ha_config_key}"
-    bashio::log.yellow "MC key ${mc_config_key}"
-
     #replace undercsored with dashes
     mc_config_key=${ha_config_key//_/-}
-    bashio::log.yellow "HA2MC key ${mc_config_key}"
 
     OLD_VALUE=$(hasp::config._get_property "${mc_config_key}" "${mc_config_file}")
 
