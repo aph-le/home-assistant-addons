@@ -1,6 +1,39 @@
 #!/usr/bin/env bash
 #!/usr/bin/with-contenv bashio
 
+
+function hasp::config() {
+    local ha_config_file=${1}
+    local mc_config_file=${2}
+    local ha_config_entries=()
+
+    if [[ ! -f "${ha_config_file}" ]]; then
+        bashio::log.debug  "ha_config_file NOT FOUND!"
+        return "${__BASHIO_EXIT_NOK}"
+    fi
+
+    if [[ ! -f "${mc_config_file}" ]]; then
+        bashio::log.debug  "ha_config_file NOT FOUND!"
+        return "${__BASHIO_EXIT_NOK}"
+    fi
+
+    mapfile -t ha_config_entries < <(jq -r 'keys[]' "${ha_config_file}")
+
+    bashio::log.red "HA CONFIG ENTRIES"
+    bashio::log.red "${ha_config_entries[@]}"
+
+    for ha_key in "${ha_config_entries[@]}"
+    do
+        bashio::log.red "${ha_key}"
+        #replace undercsored with dashes
+        mc_key=${ha_key//_/-}
+        if hasp::config._test_property "${mc_key}" "${mc_config_file}"; then
+            bashio::log.red "${mc_key}"
+        fi
+    done
+
+}
+
 # ------------------------------------------------------------------------------
 # Updates given server file with value from ha config
 #
