@@ -19,16 +19,13 @@ function hasp::config() {
 
     mapfile -t ha_config_entries < <(jq -r 'keys[]' "${ha_config_file}")
 
-    bashio::log.red "HA CONFIG ENTRIES"
-    bashio::log.red "${ha_config_entries[@]}"
-
     for ha_key in "${ha_config_entries[@]}"
     do
-        bashio::log.red "${ha_key}"
         #replace undercsored with dashes
         mc_key=${ha_key//_/-}
         if hasp::config._test_property "${mc_key}" "${mc_config_file}"; then
-            bashio::log.red "${mc_key}"
+            bashio::log "Update ${mc_key} with ${ha_key} in ${mc_config_file}"
+            hasp::config.update_server "${ha_key}" "${mc_config_file}"
         fi
     done
 
