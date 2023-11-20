@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: HA Spawn Point Bedrock
-version: "0.0.1"
+version: "0.0.2"
 slug: ha-spawn-point-bedrock
 description: Minecraft Server Addon Bedrock Edition
 #url: "https://github.com/home-assistant/addons-example/tree/main/example"
@@ -17,9 +17,9 @@ map:
   - addons:rw
 options:
   eula: true
-  server_name: MC Spawn Point Server
+  server_name: Spawn Point Bedrock Server
   version: LATEST
-  level_name: MC Spawn Point World
+  level_name: Spawn Point Bedrock
   max_players: 10
   gamemode: survival
   difficulty: easy
@@ -37,4 +37,7 @@ schema:
   enable_lan_visibility: bool?
   enable_port_proxy: bool?
   allow_list: bool?
+  allow_user:
+    - username: str?
+      xuid: str?
 #image: "ghcr.io/home-assistant/{arch}-addon-example"

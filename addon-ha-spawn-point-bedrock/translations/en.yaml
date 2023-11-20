@@ -35,3 +35,8 @@ configuration:
   allow_list:
     name: Use User Allow List
     description: If true then all connected players must be listed in allow list. (allow-list)
+  allow_user:
+    name: User Allow List
+    description: >-
+      A list of allowed users that will be created with username and xuid.
+      You don't need to do this in case you are not using the option - Use User Allow List -.
