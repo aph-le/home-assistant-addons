@@ -30,7 +30,6 @@ function hasp::config() {
         if hasp::config._test_property "${mc_key}" "${mc_config_file}"; then
             bashio::log.red "${mc_key}"
         fi
-        # or do whatever with individual element of the array
     done
 
 }
