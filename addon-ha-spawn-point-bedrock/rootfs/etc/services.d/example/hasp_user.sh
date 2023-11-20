@@ -8,6 +8,4 @@ function hasp::user() {
         bashio::log.debug  "ha_config_file NOT FOUND!"
         return "${__BASHIO_EXIT_NOK}"
     fi
-
-
 }
