@@ -20,6 +20,7 @@ options:
   server_name: MC Spawn Point Server
   version: LATEST
   level_name: MC Spawn Point World
+  max_players: 10
   gamemode: survival
   difficulty: easy
 schema:
@@ -27,10 +28,13 @@ schema:
   server_name: str
   version: "match(^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)|(LATEST)$)"
   level_name: str
+  max_players: int(1,)
   gamemode: list(survival|creative|adventure)
   difficulty: list(peaceful|easy|normal|hard)
   level_seed: "str?"
+  max_threads: int(1,8)
   online_mode: bool?
   enable_lan_visibility: bool?
   enable_port_proxy: bool?
+  allow_list: bool?
 #image: "ghcr.io/home-assistant/{arch}-addon-example"
