@@ -20,6 +20,7 @@ options:
   server_name: MC Spawn Point Server
   version: LATEST
   level_name: MC Spawn Point World
+  max_players: 10
   gamemode: survival
   difficulty: easy
 schema:
@@ -27,6 +28,7 @@ schema:
   server_name: str
   version: "match(^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)|(LATEST)$)"
   level_name: str
+  max_players: int(1,)
   gamemode: list(survival|creative|adventure)
   difficulty: list(peaceful|easy|normal|hard)
   level_seed: "str?"
