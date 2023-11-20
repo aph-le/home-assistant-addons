@@ -32,3 +32,6 @@ configuration:
   max_threads:
     name: Maximum Threads
     description: Maximum number of threads the server will try to use. (max-threads)
+  allow_list:
+    name: Use User Allow List
+    description: If true then all connected players must be listed in allow list. (allow-list)

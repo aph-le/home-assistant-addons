@@ -36,4 +36,5 @@ schema:
   online_mode: bool?
   enable_lan_visibility: bool?
   enable_port_proxy: bool?
+  allow_list: bool?
 #image: "ghcr.io/home-assistant/{arch}-addon-example"
