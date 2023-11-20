@@ -32,6 +32,7 @@ schema:
   gamemode: list(survival|creative|adventure)
   difficulty: list(peaceful|easy|normal|hard)
   level_seed: "str?"
+  max_threads: int(1,8)
   online_mode: bool?
   enable_lan_visibility: bool?
   enable_port_proxy: bool?

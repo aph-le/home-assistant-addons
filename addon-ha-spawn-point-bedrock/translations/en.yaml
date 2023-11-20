@@ -26,3 +26,9 @@ configuration:
   enable_lan_visibility:
     name: LAN Visibility
     description: Listen and respond to clients that are looking for servers on the LAN. (enable-lan-visibility)
+  max_players:
+    name: Maximum Players
+    description: The maximum number of players that can play on the server. (max-players)
+  max_threads:
+    name: Maximum Threads
+    description: Maximum number of threads the server will try to use. (max-threads)
