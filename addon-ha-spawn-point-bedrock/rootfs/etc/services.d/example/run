@@ -14,6 +14,7 @@ RUN_VERSION=$(bashio::config 'version')
 # Stores the location of this library
 readonly __HASP_LIB_DIR=$(dirname "${BASH_SOURCE[0]}")
 source "${__HASP_LIB_DIR}/hasp_config.sh"
+source "${__HASP_LIB_DIR}/hasp_user.sh"
 
 ## Print banner
 ./banner.sh
@@ -73,6 +74,7 @@ cd "${INSTALL_DIR}" || exit 1
 #create server configuration based on ha ui configuration
 bashio::log "Create Bedrock Server Configuration"
 hasp::config "/data/options.json" "./server.properties"
+hasp::user "/data/options.json" "./allowlist.json"
 
 #prepare and start bedrock server
 bashio::log "Starting Bedrock Server"
