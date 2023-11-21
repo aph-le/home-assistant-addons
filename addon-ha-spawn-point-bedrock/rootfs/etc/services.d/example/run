@@ -74,7 +74,7 @@ cd "${INSTALL_DIR}" || exit 1
 #create server configuration based on ha ui configuration
 bashio::log "Create Bedrock Server Configuration"
 hasp::config "/data/options.json" "./server.properties"
-hasp::user "./allowlist.json"
+hasp::user "/data/options.json" "./allowlist.json"
 
 #prepare and start bedrock server
 bashio::log "Starting Bedrock Server"

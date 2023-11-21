@@ -2,9 +2,10 @@
 #!/usr/bin/with-contenv bashio
 
 function hasp::user() {
-    local mc_config_file=${1}
+    local ha_config_file=${1}
+    local mc_config_file=${2}
 
-    if [[ ! -f "${mc_config_file}" ]]; then
+    if [[ ! -f "${ha_config_file}" ]]; then
         bashio::log.debug  "ha_config_file NOT FOUND!"
         return "${__BASHIO_EXIT_NOK}"
     fi
@@ -20,12 +21,13 @@ function hasp::user() {
         return "${__BASHIO_EXIT_OK}"
     fi
 
-    # Set username and xuid for the server
+    # set username and xuid for the server
     bashio::log "Creating allow List"
     for mc_user in $(bashio::config 'allow_user|keys'); do
-        username=$(bashio::config "allow_user[${mc_user}].username")
+        username=$(bashio::config "allow_user[${mc_user}].name")
         xuid=$(bashio::config "allow_user[${mc_user}].xuid")
-
         bashio::log "Setting up user ${username} - ${xuid}"
     done
+    # not optimzed yet to avoid unessarry writes
+    jq -r .allow_user "${ha_config_file}" > "${mc_config_file}"
 }
