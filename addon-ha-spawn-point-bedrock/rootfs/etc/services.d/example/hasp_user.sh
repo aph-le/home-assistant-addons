@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 #!/usr/bin/with-contenv bashio
 
+# ------------------------------------------------------------------------------
+# Updates given server file with value from ha config
+#
+# Arguments:
+#   $1 key in home assistant addon config
+#   $2 bedrock server config file
+# ------------------------------------------------------------------------------
 function hasp::user() {
     local ha_config_file=${1}
     local mc_config_file=${2}
@@ -30,4 +37,17 @@ function hasp::user() {
     done
     # not optimzed yet to avoid unessarry writes
     jq -r .allow_user "${ha_config_file}" > "${mc_config_file}"
+}
+
+# ------------------------------------------------------------------------------
+# Updates given server file with value from ha config
+#
+# Arguments:
+#   $1 key in home assistant addon config
+#   $2 bedrock server config file
+# ------------------------------------------------------------------------------
+function hasp::user.permissions() {
+    local ha_config_file=${1}
+    local mc_config_file=${2}
+
 }
