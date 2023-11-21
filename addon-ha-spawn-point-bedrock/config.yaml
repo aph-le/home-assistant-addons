@@ -38,6 +38,7 @@ schema:
   enable_port_proxy: bool?
   allow_list: bool?
   allow_user:
-    - username: str?
+    - name: str?
       xuid: str?
+      ignoresPlayerLimit: bool?
 #image: "ghcr.io/home-assistant/{arch}-addon-example"
