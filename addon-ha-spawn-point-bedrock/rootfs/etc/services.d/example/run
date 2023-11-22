@@ -47,7 +47,7 @@ fi
 DOWNLOAD_FILE=bedrock-server-1.20.41.02.zip
 
 if [[ ! -f "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" ]]; then
-  bashio::log.yellow "Download Verison %{RUN_VERSION} started ... please wait"
+  bashio::log.yellow "Download Version ${RUN_VERSION} started ... please wait"
   curl "https://minecraft.azureedge.net/bin-linux/${DOWNLOAD_FILE}" -o "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -# > /dev/null 2>&1
 else
   bashio::log.green "${DOWNLOAD_FILE} already downloaded"
