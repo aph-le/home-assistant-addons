@@ -23,6 +23,11 @@ options:
   max_players: 10
   gamemode: survival
   difficulty: easy
+  allow_list: false
+  allow_user:
+    - name: "PlayerOne"
+      xuid: "1234567890"
+      ignoresPlayerLimit: "false"
   default_player_permission_level: member
 schema:
   eula: bool
@@ -32,17 +37,17 @@ schema:
   max_players: int(1,)
   gamemode: list(survival|creative|adventure)
   difficulty: list(peaceful|easy|normal|hard)
+  allow_list: bool
+  allow_user:
+    - name: "str?"
+      xuid: "str?"
+      ignoresPlayerLimit: "bool?"
   default_player_permission_level: list(operator|member|visitor)
   level_seed: "str?"
   max_threads: "int(1,8)?"
   online_mode: "bool?"
   enable_lan_visibility: "bool?"
   enable_port_proxy: "bool?"
-  allow_list: "bool?"
-  allow_user:
-    - name: "str?"
-      xuid: "str?"
-      ignoresPlayerLimit: "bool?"
   permissions_user:
     - xuid: "str?"
       permission: "str?"
