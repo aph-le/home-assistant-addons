@@ -81,6 +81,7 @@ cd "${INSTALL_DIR}" || exit 1
 bashio::log "Create Bedrock Server Configuration"
 hasp::config "/data/options.json" "./server.properties"
 hasp::user "/data/options.json" "./allowlist.json"
+hasp::user.permissions "/data/options.json" "./permissions.json"
 
 #prepare and start bedrock server
 bashio::log "Starting Bedrock Server"

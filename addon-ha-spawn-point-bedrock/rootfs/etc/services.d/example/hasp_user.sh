@@ -50,4 +50,17 @@ function hasp::user.permissions() {
     local ha_config_file=${1}
     local mc_config_file=${2}
 
+    if [[ ! -f "${ha_config_file}" ]]; then
+        bashio::log.debug  "ha_config_file NOT FOUND!"
+        return "${__BASHIO_EXIT_NOK}"
+    fi
+
+    if [[ ! -f "${mc_config_file}" ]]; then
+        bashio::log.debug  "ha_config_file NOT FOUND!"
+        return "${__BASHIO_EXIT_NOK}"
+    fi
+
+    # not optimzed yet to avoid unessarry writes
+    jq -r .permissions_user "${ha_config_file}" > "${mc_config_file}"
+
 }
