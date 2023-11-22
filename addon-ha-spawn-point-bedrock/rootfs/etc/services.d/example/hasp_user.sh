@@ -12,6 +12,8 @@ function hasp::user() {
     local ha_config_file=${1}
     local mc_config_file=${2}
 
+    bashio::log.yellow "Creating allow List"
+
     if [[ ! -f "${ha_config_file}" ]]; then
         bashio::log.debug  "ha_config_file NOT FOUND!"
         return "${__BASHIO_EXIT_NOK}"
@@ -50,17 +52,28 @@ function hasp::user.permissions() {
     local ha_config_file=${1}
     local mc_config_file=${2}
 
+    local TEMP_NEW_PERMISSION
+    local TEMP_OLD_PERMISSION
+
+    bashio::log.yellow "Creating permission List"
+
     if [[ ! -f "${ha_config_file}" ]]; then
-        bashio::log.debug  "ha_config_file NOT FOUND!"
+        bashio::log.red  "ha_config_file NOT FOUND!"
         return "${__BASHIO_EXIT_NOK}"
     fi
 
     if [[ ! -f "${mc_config_file}" ]]; then
-        bashio::log.debug  "ha_config_file NOT FOUND!"
+        bashio::log.red  "ha_config_file NOT FOUND!"
         return "${__BASHIO_EXIT_NOK}"
     fi
 
-    # not optimzed yet to avoid unessarry writes
-    jq -r .permissions_user "${ha_config_file}" > "${mc_config_file}"
+    TEMP_OLD_PERMISSION=$(cat -s "${mc_config_file}" 2>/dev/null)
+    TEMP_NEW_PERMISSION=$(jq -r .permissions_user "${ha_config_file}")
 
+    if [ "$TEMP_OLD_PERMISSION" == "$TEMP_NEW_PERMISSION" ]; then
+        bashio::log.yellow "No Permission Update needed"
+    else
+        bashio::log.yellow "Update User Permissions"
+        jq -r .permissions_user "${ha_config_file}" > "${mc_config_file}"
+    fi
 }
