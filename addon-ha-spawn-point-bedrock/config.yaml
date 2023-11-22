@@ -29,6 +29,9 @@ options:
       xuid: "1234567890"
       ignoresPlayerLimit: "false"
   default_player_permission_level: member
+  permissions_user:
+    - xuid: "1234567890"
+      permission: "operator"
 schema:
   eula: bool
   server_name: str
@@ -39,16 +42,16 @@ schema:
   difficulty: list(peaceful|easy|normal|hard)
   allow_list: bool
   allow_user:
-    - name: "str?"
+    - name: str
       xuid: "str?"
-      ignoresPlayerLimit: "bool?"
+      ignoresPlayerLimit: bool
   default_player_permission_level: list(operator|member|visitor)
+  permissions_user:
+    - xuid: str
+      permission: str
   level_seed: "str?"
   max_threads: "int(1,8)?"
   online_mode: "bool?"
   enable_lan_visibility: "bool?"
   enable_port_proxy: "bool?"
-  permissions_user:
-    - xuid: "str?"
-      permission: "str?"
 #image: "ghcr.io/home-assistant/{arch}-addon-example"
