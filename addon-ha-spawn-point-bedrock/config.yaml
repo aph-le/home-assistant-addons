@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: HA Spawn Point Bedrock
-version: "0.0.2"
+version: "0.0.3"
 slug: ha-spawn-point-bedrock
 description: Minecraft Server Addon Bedrock Edition
 #url: "https://github.com/home-assistant/addons-example/tree/main/example"
@@ -23,6 +23,15 @@ options:
   max_players: 10
   gamemode: survival
   difficulty: easy
+  allow_list: false
+  allow_user:
+    - name: "PlayerOne"
+      xuid: "1234567890"
+      ignoresPlayerLimit: "false"
+  default_player_permission_level: member
+  permissions_user:
+    - xuid: "1234567890"
+      permission: "operator"
 schema:
   eula: bool
   server_name: str
@@ -31,14 +40,18 @@ schema:
   max_players: int(1,)
   gamemode: list(survival|creative|adventure)
   difficulty: list(peaceful|easy|normal|hard)
-  level_seed: "str?"
-  max_threads: int(1,8)?
-  online_mode: bool?
-  enable_lan_visibility: bool?
-  enable_port_proxy: bool?
-  allow_list: bool?
+  allow_list: bool
   allow_user:
-    - name: str?
-      xuid: str?
-      ignoresPlayerLimit: bool?
+    - name: str
+      xuid: "str?"
+      ignoresPlayerLimit: bool
+  default_player_permission_level: list(operator|member|visitor)
+  permissions_user:
+    - xuid: str
+      permission: str
+  level_seed: "str?"
+  max_threads: "int(1,8)?"
+  online_mode: "bool?"
+  enable_lan_visibility: "bool?"
+  enable_port_proxy: "bool?"
 #image: "ghcr.io/home-assistant/{arch}-addon-example"

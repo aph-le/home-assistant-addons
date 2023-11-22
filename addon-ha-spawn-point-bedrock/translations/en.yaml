@@ -38,5 +38,11 @@ configuration:
   allow_user:
     name: User Allow List
     description: >-
-      A list of allowed users that will be created with username and xuid.
+      A list of allowed users that will be created with username and xuid. (allowlist.json)
       You don't need to do this in case you are not using the option - Use User Allow List -.
+  default_player_permission_level:
+    name: Default User Permission
+    description: Which permission level new players will have when they join for the first time. (default-player-permission-level)
+  permissions_user:
+    name: User Permission List
+    description: A List of users with dedicated permissions that will be created with xuid and permission. (permissions.json)

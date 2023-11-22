@@ -1,6 +1,8 @@
 #!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
+
 # ==============================================================================
-# Start the example service
+# Configure andStart the example service
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
 
@@ -12,8 +14,12 @@ INSTALL_DIR=/data/bedrock_server
 RUN_VERSION=$(bashio::config 'version')
 
 # Stores the location of this library
-readonly __HASP_LIB_DIR=$(dirname "${BASH_SOURCE[0]}")
+__HASP_LIB_DIR=$(dirname "${BASH_SOURCE[0]}")
+readonly __HASP_LIB_DIR
+
+# shellcheck disable=SC1091
 source "${__HASP_LIB_DIR}/hasp_config.sh"
+# shellcheck disable=SC1091
 source "${__HASP_LIB_DIR}/hasp_user.sh"
 
 ## Print banner
@@ -47,7 +53,7 @@ fi
 DOWNLOAD_FILE=bedrock-server-1.20.41.02.zip
 
 if [[ ! -f "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" ]]; then
-  bashio::log.yellow "Download Verison %{RUN_VERSION} started ... please wait"
+  bashio::log.yellow "Download Version ${RUN_VERSION} started ... please wait"
   curl "https://minecraft.azureedge.net/bin-linux/${DOWNLOAD_FILE}" -o "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -# > /dev/null 2>&1
 else
   bashio::log.green "${DOWNLOAD_FILE} already downloaded"
@@ -75,6 +81,7 @@ cd "${INSTALL_DIR}" || exit 1
 bashio::log "Create Bedrock Server Configuration"
 hasp::config "/data/options.json" "./server.properties"
 hasp::user "/data/options.json" "./allowlist.json"
+hasp::user.permissions "/data/options.json" "./permissions.json"
 
 #prepare and start bedrock server
 bashio::log "Starting Bedrock Server"
