@@ -43,3 +43,6 @@ configuration:
   default_player_permission_level:
     name: Default User Permission
     description: Which permission level new players will have when they join for the first time. (default-player-permission-level)
+  permissions_user:
+    name: User Permission List
+    description: A List of users with dedicated permissions that will be created with xuid and permission. (permissions.json)
