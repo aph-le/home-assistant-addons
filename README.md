@@ -58,7 +58,7 @@ Notes to developers after forking or using the github template feature:
 [armv7-shield]: https://img.shields.io/badge/armv7-yes-green?style=plastic
 [i386-shield]: https://img.shields.io/badge/i386-yes-green?style=plastic
 
-## References
+#### References
 
 - Thanks to [itzg](https://github.com/itzg/docker-minecraft-bedrock-server) for the minecraft server docker image inspiration.
 - Thanks to [williamcorsel](https://github.com/williamcorsel/hassio-addons) for the home assistant minecraft addon inspiration.
