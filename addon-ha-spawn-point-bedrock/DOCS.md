@@ -1,4 +1,4 @@
-# Home Assistant Add-on: Spaen Point Bedrock
+# Home Assistant Add-on: Spawn Point Bedrock
 
 ## About
 
