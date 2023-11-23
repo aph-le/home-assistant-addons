@@ -1,4 +1,4 @@
-# Home Assistant Add-on: Spaen Point Bedrock
+# Home Assistant Add-on: Spawn Point Bedrock
 
 ## About
 
@@ -11,3 +11,10 @@ To start the add-on the EULA configuration switch has to be true. The EULA can b
 ## How to use
 
 The server can be configured in the add-on configuration dialog.
+
+## Todo
+
+- Backup system when server closes
+- Keep Worlds an settings after update
+- Enable some Kind of advanced configuration with /addon_cofig folder
+- Translations
