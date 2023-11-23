@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 0.0.6 - Docker Config Hotfix
+
+- Fixed Linter Problem building the Docker image
+
 ## 0.0.5 - Docker Image Hotfix
 
 - Fixed Problem building the Docker image

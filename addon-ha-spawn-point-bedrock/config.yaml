@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: HA Spawn Point Bedrock
-version: "0.0.5"
+version: "0.0.6"
 slug: ha-spawn-point-bedrock
 description: Minecraft Server Addon Bedrock Edition
 #url: "https://github.com/home-assistant/addons-example/tree/main/example"
@@ -11,7 +11,7 @@ ports:
   19132/udp: "19132"
 ports_description:
   19132/udp: Minecraft Server Port
-host_network: true
+#host_network: true
 init: false
 map:
   - addons:rw
