@@ -1,5 +1,11 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 0.0.4 - Faster Docker Image
+
+- Removed update of baseimage during docker creation
+- Fixed URL in log banner
+- Fixed some log typos
+
 ## 0.0.3 - Beeing Operator
 
 - Added new config entries for user permissions in the configuration UI
