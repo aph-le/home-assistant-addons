@@ -1,5 +1,10 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 2023.11.1 New Version Schema
+
+- Switched to new version schema
+- Some internal house keeping
+
 ## 0.0.7 - Docker Config Hotfix
 
 - Fixed Linter Problem building the remote Docker image
