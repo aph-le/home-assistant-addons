@@ -54,4 +54,4 @@ schema:
   online_mode: "bool?"
   enable_lan_visibility: "bool?"
   enable_port_proxy: "bool?"
-image: "ghcr.io/aph-le/{arch}-addon-spawn-point-bedrock"
+#image: "ghcr.io/aph-le/{arch}-addon-spawn-point-bedrock"
