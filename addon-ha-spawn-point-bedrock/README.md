@@ -2,6 +2,7 @@
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
+![Static Badge](https://img.shields.io/badge/project_stage-experimental-yellow)
 
 _Addon running a Minecraft Bedrock Sever on Home Assistant._
 
