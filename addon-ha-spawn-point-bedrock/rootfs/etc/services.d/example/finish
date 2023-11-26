@@ -12,4 +12,5 @@ if [[ "${APP_EXIT_CODE}" -ne 0 ]] && [[ "${APP_EXIT_CODE}" -ne 256 ]]; then
   exec /run/s6/basedir/bin/halt
 fi
 
+bashio::log.red "Called finish ${APP_EXIT_CODE}"
 bashio::log.info "Service restart after closing"
