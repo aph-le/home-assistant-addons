@@ -21,6 +21,8 @@ readonly __HASP_LIB_DIR
 source "${__HASP_LIB_DIR}/hasp_config.sh"
 # shellcheck disable=SC1091
 source "${__HASP_LIB_DIR}/hasp_user.sh"
+# shellcheck disable=SC1091
+source "${__HASP_LIB_DIR}/hasp_versions.sh"
 
 ## Print banner
 ./banner.sh
@@ -40,6 +42,9 @@ if [[ "$RUN_VERSION" = "LATEST" ]]; then
     DOWNLOAD_URL=$(cat /data/latest_version_download_link.txt)
     bashio::log.green "Download URL '${DOWNLOAD_URL}'"
   fi
+else
+  DOWNLOAD_URL=$(hasp::version "${RUN_VERSION}")
+  bashio::log.yellow "Download URL ${DOWNLOAD_URL}"
 fi
 
 bashio::log.green "Download Directory ${DOWNLOAD_SAVE_DIR}"
