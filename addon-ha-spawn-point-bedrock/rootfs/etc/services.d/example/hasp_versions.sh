@@ -8,7 +8,7 @@ function hasp::version() {
     if [ "$input_version" = "LATEST" ]; then
         input_version="LATEST"
     else
-        download_link=$(cat /usr/bin/download_versions.json | jq -r -c '.[] | select(.bedrock_version | contains("1.9.0")) | .download ')
+        download_link=$(cat /usr/bin/download_versions.json | jq -r -c '.[] | select(.bedrock_version | contains('\"$input_version\"')) | .download ')
     fi
     echo "${download_link}"
 }
