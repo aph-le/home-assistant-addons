@@ -47,6 +47,14 @@ else
   bashio::log.yellow "Download URL ${DOWNLOAD_URL}"
 fi
 
+if [ -z "$DOWNLOAD_URL" ]; then
+  ## set a default download file
+  DOWNLOAD_FILE=bedrock-server-1.20.41.02.zip
+  DOWNLOAD_URL="https://minecraft.azureedge.net/bin-linux/${DOWNLOAD_FILE}"
+else
+  DOWNLOAD_FILE="${DOWNLOAD_URL##*/}"
+fi
+
 bashio::log.green "Download Directory ${DOWNLOAD_SAVE_DIR}"
 
 if [[ ! -d  ${DOWNLOAD_SAVE_DIR} ]]; then
@@ -55,11 +63,9 @@ if [[ ! -d  ${DOWNLOAD_SAVE_DIR} ]]; then
   chmod -R 777 ${DOWNLOAD_SAVE_DIR}
 fi
 
-DOWNLOAD_FILE=bedrock-server-1.20.41.02.zip
-
 if [[ ! -f "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" ]]; then
-  bashio::log.yellow "Download Version ${RUN_VERSION} started ... please wait"
-  curl "https://minecraft.azureedge.net/bin-linux/${DOWNLOAD_FILE}" -o "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -# > /dev/null 2>&1
+  bashio::log.yellow "Download ${DOWNLOAD_FILE} started ... please wait"
+  curl "${DOWNLOAD_URL}" -o "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -# > /dev/null 2>&1
 else
   bashio::log.green "${DOWNLOAD_FILE} already downloaded"
 fi
@@ -70,7 +76,9 @@ if [[ ! -d  ${INSTALL_DIR} ]]; then
   chmod -R 777 ${INSTALL_DIR}
 fi
 
-SERVER_FILE_NAME=bedrock_server-1.20.41.02
+
+SERVER_FILE_NAME=b"${DOWNLOAD_FILE%.*}"
+bashio::log.yellow "SERVER FILE ${SERVER_FILE_NAME}"
 
 if [[ ! -f "${INSTALL_DIR}/${SERVER_FILE_NAME}" ]]; then
   bashio::log "Installing new version"
