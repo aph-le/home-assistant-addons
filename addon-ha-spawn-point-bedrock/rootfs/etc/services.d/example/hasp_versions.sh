@@ -12,3 +12,18 @@ function hasp::version() {
     fi
     echo "${download_link}"
 }
+
+
+function hasp::version.cleanup() {
+    local cleanup_path=${1}
+    local path_stack=""
+
+    path_stack=$(pwd)
+
+    cd "${cleanup_path}" || exit 1
+
+    mv ./worlds /tmp/worlds 2> /dev/null || true
+    rm -rf -- * 2> /dev/null || true
+    mv /tmp/worlds . 2> /dev/null || true
+    cd "${path_stack}" || exit 1
+}

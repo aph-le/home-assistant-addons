@@ -41,6 +41,7 @@ if [[ "$RUN_VERSION" = "LATEST" ]]; then
   if [[ -f "/data/latest_version_download_link.txt" ]]; then
     DOWNLOAD_URL=$(cat /data/latest_version_download_link.txt)
     bashio::log.green "Download URL '${DOWNLOAD_URL}'"
+    DOWNLOAD_URL=https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.41.02.zip
   fi
 else
   DOWNLOAD_URL=$(hasp::version "${RUN_VERSION}")
@@ -55,10 +56,9 @@ else
   DOWNLOAD_FILE="${DOWNLOAD_URL##*/}"
 fi
 
-bashio::log.green "Download Directory ${DOWNLOAD_SAVE_DIR}"
 
 if [[ ! -d  ${DOWNLOAD_SAVE_DIR} ]]; then
-  bashio::log "Creating Download Directory"
+  bashio::log.yellow "Creating Download Directory"
   mkdir ${DOWNLOAD_SAVE_DIR}
   chmod -R 777 ${DOWNLOAD_SAVE_DIR}
 fi
@@ -71,18 +71,18 @@ else
 fi
 
 if [[ ! -d  ${INSTALL_DIR} ]]; then
-  bashio::log "Creating Install Directory"
+  bashio::log.yellow "Creating Install Directory"
   mkdir ${INSTALL_DIR}
   chmod -R 777 ${INSTALL_DIR}
 fi
 
-
-SERVER_FILE_NAME=b"${DOWNLOAD_FILE%.*}"
-bashio::log.yellow "SERVER FILE ${SERVER_FILE_NAME}"
+SERVER_FILE_NAME="${DOWNLOAD_FILE%.*}"
 
 if [[ ! -f "${INSTALL_DIR}/${SERVER_FILE_NAME}" ]]; then
-  bashio::log "Installing new version"
-  unzip -q -n "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -d ${INSTALL_DIR}
+  bashio::log.yellow "Removing old version"
+  hasp::version.cleanup "${INSTALL_DIR}"
+  bashio::log.yellow "Installing new version"
+  unzip -q -o "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -d ${INSTALL_DIR}
   mv "${INSTALL_DIR}/bedrock_server" "${INSTALL_DIR}/${SERVER_FILE_NAME}"
 else
   bashio::log.green "${DOWNLOAD_FILE} already Installed"
