@@ -41,7 +41,7 @@ if [[ "$RUN_VERSION" = "LATEST" ]]; then
   if [[ -f "/data/latest_version_download_link.txt" ]]; then
     DOWNLOAD_URL=$(cat /data/latest_version_download_link.txt)
     bashio::log.green "Download URL '${DOWNLOAD_URL}'"
-    DOWNLOAD_URL=https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.41.02.zip
+    #DOWNLOAD_URL=https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.41.02.zip
   fi
 else
   DOWNLOAD_URL=$(hasp::version "${RUN_VERSION}")
