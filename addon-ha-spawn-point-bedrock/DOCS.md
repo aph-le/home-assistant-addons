@@ -4,6 +4,13 @@
 
 This add-on downloads and starts a Minecraft Bedrock server.
 
+## Supported Bedrock Versions
+
+In the configuration can be defines which Bedrock Version of the Server should be started.
+Just use the version number, e.g. 1.20.41. If you use _LATEST_ the latest known version will be started.
+
+**LATEST** - 1.20.41
+
 ## Version Schema
 
 The version schema of this add-on is using calendar versioning, consisting of year, month and patch _(year.month.patch)_. This is following the current Home Assistant versioning system.
