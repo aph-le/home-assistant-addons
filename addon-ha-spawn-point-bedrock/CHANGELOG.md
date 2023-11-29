@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 2023.11.2 Downgrade Versions
+
+- The version can be now downgraded with the version config entry.
+
 ## 2023.11.1 New Version Schema
 
 - Switched to new version schema
