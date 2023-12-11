@@ -3,7 +3,7 @@ name: HA Spawn Point Bedrock
 version: "2023.12.2"
 slug: ha-spawn-point-bedrock
 description: Minecraft Server Addon Bedrock Edition
-#url: "https://github.com/home-assistant/addons-example/tree/main/example"
+url: "https://github.com/aph-le/home-assistant-addons/tree/main/addon-ha-spawn-point-bedrock"
 arch:
   - amd64
   - aarch64
