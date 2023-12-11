@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: HA Spawn Point Bedrock
-version: "2023.12.1"
+version: "2023.12.2"
 slug: ha-spawn-point-bedrock
 description: Minecraft Server Addon Bedrock Edition
 #url: "https://github.com/home-assistant/addons-example/tree/main/example"
@@ -51,4 +51,4 @@ schema:
   online_mode: "bool?"
   enable_lan_visibility: "bool?"
   enable_port_proxy: "bool?"
-image: "ghcr.io/aph-le/{arch}-addon-spawn-point-bedrock"
+#image: "ghcr.io/aph-le/{arch}-addon-spawn-point-bedrock"
