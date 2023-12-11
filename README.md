@@ -28,7 +28,6 @@ This repository contains the following add-ons
 ![Static Badge](https://img.shields.io/badge/release-2023.11.2-blue?style=plastic&label=release)
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
-![Supports armhf Architecture][armhf-shield]
 
 _Minecraft Server Bedrock Edition_
 
