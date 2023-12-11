@@ -14,6 +14,7 @@ function hasp::version() {
     if [ "$input_version" = "LATEST" ]; then
         input_version="LATEST"
     else
+        # shellcheck disable=SC2002
         download_link=$(cat /usr/bin/download_versions.json | jq -r -c '.[] | select(.bedrock_version | contains('\"$input_version\"')) | .download ')
     fi
     echo "${download_link}"
