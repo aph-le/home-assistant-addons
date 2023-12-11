@@ -104,6 +104,6 @@ export LD_LIBRARY_PATH=.
 
 
 
-#exec python3 /usr/bin/mc_port_proxy.py
+#exec python3 /usr/bin/mc_port_proxy.py &
 ## Run your program
 #exec /usr/bin/my_program
