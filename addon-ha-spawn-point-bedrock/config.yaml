@@ -7,10 +7,6 @@ description: Minecraft Server Addon Bedrock Edition
 arch:
   - amd64
   - aarch64
-#ports:
-#  19132/udp: 19132
-#ports_description:
-#  19132/udp: Minecraft Server Port
 host_network: true
 init: false
 map:
