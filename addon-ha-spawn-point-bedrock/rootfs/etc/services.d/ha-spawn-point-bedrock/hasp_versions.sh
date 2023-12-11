@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 #!/usr/bin/with-contenv bashio
 
+# ------------------------------------------------------------------------------
+# Returns a downloadlink from a given version
+#
+# Arguments:
+#   $1 bedrock version number
+# ------------------------------------------------------------------------------
 function hasp::version() {
     local input_version=${1}
     local download_link=""
@@ -14,6 +20,12 @@ function hasp::version() {
 }
 
 
+# ------------------------------------------------------------------------------
+# Cleans the given path by removing most of the files
+#
+# Arguments:
+#   $1 work directory
+# ------------------------------------------------------------------------------
 function hasp::version.cleanup() {
     local cleanup_path=${1}
     local path_stack=""
