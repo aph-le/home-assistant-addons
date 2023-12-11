@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 2023.12.1 New Dedicated Server Version
+
+- Bump to Dedicated Server Version 1.20.50.3
+
 ## 2023.11.2 Downgrade Versions
 
 - The version can be now downgraded with the version config entry.
