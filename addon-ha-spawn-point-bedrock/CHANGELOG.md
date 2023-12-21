@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 2023.12.2 New Dedicated Server Version
+
+- Bump home-assistant/builder from 2023.09.0 to 2023.12.0
+
 ## 2023.12.1 New Dedicated Server Version
 
 - Bump to Dedicated Server Version 1.20.50.3
