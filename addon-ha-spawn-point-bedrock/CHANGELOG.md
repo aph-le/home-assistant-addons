@@ -2,6 +2,7 @@
 
 ## 2023.12.2 New Dedicated Server Version
 
+- Changed License to MIT
 - Bump home-assistant/builder from 2023.09.0 to 2023.12.0
 
 ## 2023.12.1 New Dedicated Server Version
