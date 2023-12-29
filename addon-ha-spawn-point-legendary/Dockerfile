@@ -13,6 +13,10 @@ RUN \
 # Copy root filesystem
 COPY rootfs /
 
+# Copy defualt Configs
+RUN mkdir /default_config
+COPY /default_config/* /default_config/
+
 # Corrects permissions for s6 v3
 RUN if [ -d /etc/services.d ]; then chmod -R 755 /etc/services.d; fi && \
     if [ -d /etc/services.d/ha-spawn-point-bedrock ]; then chmod -R 755 /etc/services.d/ha-spawn-point-bedrock; fi && \
