@@ -1,0 +1,7 @@
+configuration:
+  eula:
+    name: EULA
+    description: End User License Agreement - has to be on for starting the server. See https://minecraft.net/terms
+  server_name:
+    name: Server Name
+    description: Name of the Minecraft Bedrock Server. (server-name)
