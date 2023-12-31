@@ -3,6 +3,7 @@ FROM ${BUILD_FROM}
 
 ARG PAPERMC_VERSION="1.20.4"
 ARG PAPERMC_BUILD="361"
+ARG JAVA_VERSION="openjdk-17-jre-headless"
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -11,7 +12,7 @@ RUN \
     apt-get -y update -y \
     && apt-get -y install yq \
     && apt-get -y install unzip \
-    && apt-get -y install openjdk-17-jre-headless
+    && apt-get -y install $JAVA_VERSION
 
 # Copy root filesystem
 COPY rootfs /
@@ -22,8 +23,7 @@ COPY default_config/* /default_config/
 
 # Corrects permissions for s6 v3
 RUN if [ -d /etc/services.d ]; then chmod -R 755 /etc/services.d; fi && \
-    if [ -d /etc/services.d/ha-spawn-point-bedrock ]; then chmod -R 755 /etc/services.d/ha-spawn-point-bedrock; fi && \
-    if [ -f /etc/services.d/ha-spawn-point-bedrock/banner.sh ]; then chmod 755 /etc/services.d/ha-spawn-point-bedrock/banner.sh; fi
+    if [ -d /etc/services.d/ha-spawn-point-legendary ]; then chmod -R 755 /etc/services.d/ha-spawn-point-legendary; fi
 
 # Get needed binaries
 RUN mkdir -p minecraft/plugins

@@ -2,7 +2,7 @@
 name: HA Spawn Point Legendary
 version: "2024.1.0"
 slug: ha-spawn-point-legendary
-description: Minecraft Server Lgenedary Addon Java/Gyser/Floodgate Edition
+description: Minecraft Server Legendary Addon Java/Geyser/Floodgate Edition
 url: "https://github.com/aph-le/home-assistant-addons/tree/main/addon-ha-spawn-point-legendary"
 arch:
   - amd64
@@ -14,9 +14,9 @@ map:
 #tmpfs: true
 options:
   eula: true
-  server_name: Spawn Point Bedrock Server
+  motd: Spawn Point Legendary Server
   version: LATEST
-  level_name: Spawn Point Bedrock
+  level_name: Spawn Point Legendary
   max_players: 10
   gamemode: survival
   difficulty: easy
@@ -31,7 +31,7 @@ options:
       permission: "operator"
 schema:
   eula: bool
-  server_name: str
+  motd: str
   version: "match(^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)|(LATEST)$)"
   level_name: str
   max_players: int(1,)
