@@ -10,8 +10,6 @@
 
 # Declare variables
 MINECRAFT_DIR=/data/minecraft
-INSTALL_DIR=/data/bedrock_server
-RUN_VERSION=$(bashio::config 'version')
 
 # Stores the location of this library
 __HASP_LIB_DIR=$(dirname "${BASH_SOURCE[0]}")
@@ -28,6 +26,9 @@ if [[ ! -d  ${MINECRAFT_DIR} ]]; then
   bashio::log.yellow "Creating Minecraft Directory"
   mkdir -p ${MINECRAFT_DIR}
   chmod a+x ${MINECRAFT_DIR}
+  bashio::log.yellow "Copy Default Server Config"
+  cp /default_config/server.properties ${MINECRAFT_DIR}/server.properties
+  ls -la
 fi
 
 ## EULA check
@@ -44,9 +45,10 @@ fi
 
 cp -r /minecraft /data
 chmod a+x "/data/minecraft"
-echo eula=true >/data/minecraft/eula.txt
 ls -la /data/
 ls -la /data/minecraft
+
+hasp::config "/data/options.json" "/data/minecraft/server.properties"
 
 cd ${MINECRAFT_DIR} || exit 1
 pwd
