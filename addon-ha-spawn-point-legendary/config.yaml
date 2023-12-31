@@ -11,44 +11,12 @@ host_network: true
 init: false
 map:
   - addons:rw
-#tmpfs: true
 options:
   eula: true
   motd: Spawn Point Legendary Server
-  version: LATEST
   level_name: Spawn Point Legendary
-  max_players: 10
-  gamemode: survival
-  difficulty: easy
-  allow_list: false
-  allow_user:
-    - name: "PlayerOne"
-      xuid: "1234567890"
-      ignoresPlayerLimit: "false"
-  default_player_permission_level: member
-  permissions_user:
-    - xuid: "1234567890"
-      permission: "operator"
 schema:
   eula: bool
   motd: str
-  version: "match(^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)|(LATEST)$)"
   level_name: str
-  max_players: int(1,)
-  gamemode: list(survival|creative|adventure)
-  difficulty: list(peaceful|easy|normal|hard)
-  allow_list: bool
-  allow_user:
-    - name: str
-      xuid: "str?"
-      ignoresPlayerLimit: bool
-  default_player_permission_level: list(operator|member|visitor)
-  permissions_user:
-    - xuid: str
-      permission: str
-  level_seed: "str?"
-  max_threads: "int(1,8)?"
-  online_mode: "bool?"
-  enable_lan_visibility: "bool?"
-  enable_port_proxy: "bool?"
 #image: "ghcr.io/aph-le/{arch}-addon-spawn-point-legendary"
