@@ -86,7 +86,7 @@ command-suggestions: true
 
 # The following three options enable "ping passthrough" - the MOTD, player count and/or protocol name gets retrieved from the Java server.
 # Relay the MOTD from the remote server to Bedrock players.
-passthrough-motd: false
+passthrough-motd: true
 # Relay the protocol name (e.g. BungeeCord [X.X], Paper 1.X) - only really useful when using a custom protocol name!
 # This will also show up on sites like MCSrvStatus. <mcsrvstat.us>
 passthrough-protocol-name: false
@@ -162,7 +162,7 @@ custom-skull-render-distance: 32
 add-non-bedrock-items: true
 
 # Bedrock prevents building and displaying blocks above Y127 in the Nether.
-# This config option works around that by changing the Nether dimension ID to the End ID. 
+# This config option works around that by changing the Nether dimension ID to the End ID.
 # The main downside to this is that the entire Nether will have the same red fog rather than having different fog for each biome.
 above-bedrock-nether-building: false
 

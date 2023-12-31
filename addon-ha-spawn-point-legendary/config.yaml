@@ -2,7 +2,7 @@
 name: HA Spawn Point Legendary
 version: "2024.1.0"
 slug: ha-spawn-point-legendary
-description: Minecraft Server Lgenedary Addon Java/Gyser/Floodgate Edition
+description: Minecraft Server Legendary Addon Java/Geyser/Floodgate Edition
 url: "https://github.com/aph-le/home-assistant-addons/tree/main/addon-ha-spawn-point-legendary"
 arch:
   - amd64
