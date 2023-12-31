@@ -9,7 +9,7 @@
 # Add your code here
 
 # Declare variables
-DOWNLOAD_SAVE_DIR=/data/download
+MINECRAFT_DIR=/data/minecraft
 INSTALL_DIR=/data/bedrock_server
 RUN_VERSION=$(bashio::config 'version')
 
@@ -24,8 +24,11 @@ source "${__HASP_LIB_DIR}/hasp_user.sh"
 # shellcheck disable=SC1091
 source "${__HASP_LIB_DIR}/hasp_versions.sh"
 
-## Print banner
-# ./banner.sh
+if [[ ! -d  ${MINECRAFT_DIR} ]]; then
+  bashio::log.yellow "Creating Minecraft Directory"
+  mkdir -p ${MINECRAFT_DIR}
+  chmod a+x ${MINECRAFT_DIR}
+fi
 
 ## EULA check
 EULA=$(bashio::config 'eula')
@@ -35,9 +38,9 @@ if [[ ${EULA^^} != TRUE ]]; then
   bashio::log.red "Current value is '${EULA}'"
   exit 1
 else
-  echo eula=true >/minecraft/eula.txt
-#  echo eula=true >/data/minecraft/eula.txt
+  echo eula=true >${MINECRAFT_DIR}/eula.txt
 fi
+
 
 cp -r /minecraft /data
 chmod a+x "/data/minecraft"
@@ -45,81 +48,11 @@ echo eula=true >/data/minecraft/eula.txt
 ls -la /data/
 ls -la /data/minecraft
 
-cd /data/minecraft
+cd ${MINECRAFT_DIR} || exit 1
 pwd
 ls -la
 
+bashio::log.yellow "Starting Minecraft Server"
 exec java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M  -jar ./papermc.jar
 exit 1
 
-if [[ "$RUN_VERSION" = "LATEST" ]]; then
-  curl https://mc-bds-helper.vercel.app/api/latest -o /data/latest_version_download_link.txt > /dev/null 2>&1
-  if [[ -f "/data/latest_version_download_link.txt" ]]; then
-    DOWNLOAD_URL=$(cat /data/latest_version_download_link.txt)
-    bashio::log.green "Download URL '${DOWNLOAD_URL}'"
-    #DOWNLOAD_URL=https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.41.02.zip
-  fi
-else
-  DOWNLOAD_URL=$(hasp::version "${RUN_VERSION}")
-  bashio::log.yellow "Download URL ${DOWNLOAD_URL}"
-fi
-
-if [ -z "$DOWNLOAD_URL" ]; then
-  ## set a default download file
-  DOWNLOAD_FILE=bedrock-server-1.20.41.02.zip
-  DOWNLOAD_URL="https://minecraft.azureedge.net/bin-linux/${DOWNLOAD_FILE}"
-else
-  DOWNLOAD_FILE="${DOWNLOAD_URL##*/}"
-fi
-
-
-if [[ ! -d  ${DOWNLOAD_SAVE_DIR} ]]; then
-  bashio::log.yellow "Creating Download Directory"
-  mkdir ${DOWNLOAD_SAVE_DIR}
-  chmod -R 777 ${DOWNLOAD_SAVE_DIR}
-fi
-
-if [[ ! -f "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" ]]; then
-  bashio::log.yellow "Download ${DOWNLOAD_FILE} started ... please wait"
-  curl "${DOWNLOAD_URL}" -o "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -# > /dev/null 2>&1
-else
-  bashio::log.green "${DOWNLOAD_FILE} already downloaded"
-fi
-
-if [[ ! -d  ${INSTALL_DIR} ]]; then
-  bashio::log.yellow "Creating Install Directory"
-  mkdir ${INSTALL_DIR}
-  chmod -R 777 ${INSTALL_DIR}
-fi
-
-SERVER_FILE_NAME="${DOWNLOAD_FILE%.*}"
-
-if [[ ! -f "${INSTALL_DIR}/${SERVER_FILE_NAME}" ]]; then
-  bashio::log.yellow "Removing old version"
-  hasp::version.cleanup "${INSTALL_DIR}"
-  bashio::log.yellow "Installing new version"
-  unzip -q -o "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -d ${INSTALL_DIR}
-  mv "${INSTALL_DIR}/bedrock_server" "${INSTALL_DIR}/${SERVER_FILE_NAME}"
-else
-  bashio::log.green "${DOWNLOAD_FILE} already Installed"
-fi
-
-cd "${INSTALL_DIR}" || exit 1
-
-#create server configuration based on ha ui configuration
-bashio::log "Create Bedrock Server Configuration"
-hasp::config "/data/options.json" "./server.properties"
-hasp::user "/data/options.json" "./allowlist.json"
-hasp::user.permissions "/data/options.json" "./permissions.json"
-
-#prepare and start bedrock server
-bashio::log "Starting Bedrock Server"
-chmod a+x "./${SERVER_FILE_NAME}"
-export LD_LIBRARY_PATH=.
-"./${SERVER_FILE_NAME}"
-
-
-
-#exec python3 /usr/bin/mc_port_proxy.py &
-## Run your program
-#exec /usr/bin/my_program
