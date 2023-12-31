@@ -1,4 +1,4 @@
-# Spawn Point Legendary - Home Assistant Minecraft PaperMc/Gyser/Floodgate Server Addon
+# Spawn Point Legendary - Home Assistant Minecraft PaperMc/Geyser/Floodgate Server Addon
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
