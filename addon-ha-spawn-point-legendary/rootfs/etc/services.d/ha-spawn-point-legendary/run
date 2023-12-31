@@ -24,11 +24,13 @@ source "${__HASP_LIB_DIR}/hasp_versions.sh"
 
 if [[ ! -d  ${MINECRAFT_DIR} ]]; then
   bashio::log.yellow "Creating Minecraft Directory"
-  mkdir -p ${MINECRAFT_DIR}
+  mkdir -p ${MINECRAFT_DIR}/plugins//Geyser-Spigot
   chmod a+x ${MINECRAFT_DIR}
   bashio::log.yellow "Copy Default Server Config"
   cp /default_config/server.properties ${MINECRAFT_DIR}/server.properties
-  ls -la
+  cp /default_config/bukkit.yml ${MINECRAFT_DIR}/bukkit.yml
+  cp /default_config/spigot.yml ${MINECRAFT_DIR}/spigot.yml
+  cp /default_config/geyser.yml ${MINECRAFT_DIR}/plugins/Geyser-Spigot/config.yml
 fi
 
 ## EULA check
@@ -37,16 +39,23 @@ if [[ ${EULA^^} != TRUE ]]; then
   bashio::log.red "EULA must be set to TRUE to indicate agreement with the Minecraft End User License"
   bashio::log.red "See https://minecraft.net/terms"
   bashio::log.red "Current value is '${EULA}'"
+  if [ -e ${MINECRAFT_DIR}/eula.txt ]; then
+    rm ${MINECRAFT_DIR}/eula.txt
+  fi
   exit 1
 else
-  echo eula=true >${MINECRAFT_DIR}/eula.txt
+  if [ ! -e ${MINECRAFT_DIR}/eula.txt ]; then
+    bashio::log.green "Accepted EULA"
+    echo eula=true >${MINECRAFT_DIR}/eula.txt
+  fi
 fi
 
 
 cp -r /minecraft /data
 chmod a+x "/data/minecraft"
-ls -la /data/
-ls -la /data/minecraft
+#ls -la /data/
+#ls -la /data/minecraft
+ls -la /data/minecraft/plugins
 
 hasp::config "/data/options.json" "/data/minecraft/server.properties"
 
