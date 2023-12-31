@@ -62,3 +62,4 @@ Notes to developers after forking or using the github template feature:
 
 - Thanks to [itzg](https://github.com/itzg/docker-minecraft-bedrock-server) for the minecraft server docker image inspiration.
 - Thanks to [williamcorsel](https://github.com/williamcorsel/hassio-addons) for the home assistant minecraft addon inspiration.
+- Thanks to [TheRemote](https://github.com/TheRemote/Legendary-Java-Minecraft-Geyser-Floodgate) for the minecraft Java/Geyser/Floddgate inspiration.
