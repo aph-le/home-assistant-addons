@@ -2,7 +2,7 @@
 
 ## About
 
-This add-on starts a Minecraft server, with Geyser Plugin and Fllodgate for Bedrock Clients.
+This add-on starts a Minecraft server, with Geyser Plugin and Floodgate for Bedrock Clients.
 
 ## Version Schema
 
