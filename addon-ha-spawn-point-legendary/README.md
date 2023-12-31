@@ -1,11 +1,11 @@
-# Spawn Point Legenedary - Home Assistant Minecraft PaperMc/Gyser/Floodgate Server Addon
+# Spawn Point Legendary - Home Assistant Minecraft PaperMc/Gyser/Floodgate Server Addon
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
 ![Static Badge](https://img.shields.io/badge/project_stage-experimental-yellow?style=plastic)
 ![Static Badge](https://img.shields.io/badge/release-2023.12.2-blue?style=plastic&label=release)
 
-_Addon running a Minecraft Bedrock Sever on Home Assistant._
+_Addon running a Minecraft Java/Bedrock Sever on Home Assistant._
 
 For configuration use the add-on configuration UI of Home Assistant.
 
