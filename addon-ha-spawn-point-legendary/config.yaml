@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: HA Spawn Point Legendary
-version: "2024.01.0"
+version: "2024.01.1"
 slug: ha-spawn-point-legendary
 description: Minecraft Server Lgenedary Addon Java/Gyser/Floodgate Edition
 url: "https://github.com/aph-le/home-assistant-addons/tree/main/addon-ha-spawn-point-legendary"
@@ -11,7 +11,7 @@ host_network: true
 init: false
 map:
   - addons:rw
-tmpfs: true
+#tmpfs: true
 options:
   eula: true
   server_name: Spawn Point Bedrock Server

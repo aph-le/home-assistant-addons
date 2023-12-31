@@ -25,7 +25,7 @@ source "${__HASP_LIB_DIR}/hasp_user.sh"
 source "${__HASP_LIB_DIR}/hasp_versions.sh"
 
 ## Print banner
-./banner.sh
+# ./banner.sh
 
 ## EULA check
 EULA=$(bashio::config 'eula')
@@ -34,7 +34,23 @@ if [[ ${EULA^^} != TRUE ]]; then
   bashio::log.red "See https://minecraft.net/terms"
   bashio::log.red "Current value is '${EULA}'"
   exit 1
+else
+  echo eula=true >/minecraft/eula.txt
+#  echo eula=true >/data/minecraft/eula.txt
 fi
+
+cp -r /minecraft /data
+chmod a+x "/data/minecraft"
+echo eula=true >/data/minecraft/eula.txt
+ls -la /data/
+ls -la /data/minecraft
+
+cd /data/minecraft
+pwd
+ls -la
+
+exec java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M  -jar ./papermc.jar
+exit 1
 
 if [[ "$RUN_VERSION" = "LATEST" ]]; then
   curl https://mc-bds-helper.vercel.app/api/latest -o /data/latest_version_download_link.txt > /dev/null 2>&1
