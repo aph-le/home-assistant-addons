@@ -25,7 +25,7 @@ source "${__HASP_LIB_DIR}/hasp_user.sh"
 source "${__HASP_LIB_DIR}/hasp_versions.sh"
 
 ## Print banner
-./banner.sh
+#./banner.sh
 
 ## EULA check
 EULA=$(bashio::config 'eula')

@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 2024.1.0 New Year Cleanup
+
+- Removed double banner printout
+
 ## 2023.12.2 New Dedicated Server Version
 
 - Changed License to MIT
