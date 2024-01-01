@@ -19,4 +19,4 @@ schema:
   eula: bool
   motd: str
   level_name: str
-#image: "ghcr.io/aph-le/{arch}-addon-spawn-point-legendary"
+image: "ghcr.io/aph-le/{arch}-addon-spawn-point-legendary"
