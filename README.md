@@ -25,13 +25,23 @@ This repository contains the following add-ons
 
 ### Spawn Point Bedrock
 
-![Static Badge](https://img.shields.io/badge/release-2023.11.2-blue?style=plastic&label=release)
+![Static Badge](https://img.shields.io/badge/release-2024.1.0-blue?style=plastic&label=release)
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
 
 _Minecraft Server Bedrock Edition_
 
 A Minecraft Server Bedrock which is fully configured with the Home Assistant add-on configuartion UI.
+
+### Spawn Point Legendary
+
+![Static Badge](https://img.shields.io/badge/release-2024.1.0-blue?style=plastic&label=release)
+![Supports aarch64 Architecture][aarch64-shield]
+![Supports amd64 Architecture][amd64-shield]
+
+_Minecraft PaperMC Server Java Edition, with Geyser Plugin for Bedrock clients_
+
+A Minecraft Server which is fully configured with the Home Assistant add-on configuartion UI.
 
 <!--
 

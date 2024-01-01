@@ -5,3 +5,9 @@ configuration:
   motd:
     name: Server Message / Bedrock Server Name
     description: The message of the day, displayed in the server list. (motd)
+  online_mode:
+    name: Require Minecraft Account
+    description: Require Minecraft account authentication for clients. (online-mode)
+  level_name:
+    name: World Name
+    description: Name of the Minecraft world. If it doesn't exits, it will be created. (level-name)

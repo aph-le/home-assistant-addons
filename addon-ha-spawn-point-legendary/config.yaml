@@ -14,9 +14,11 @@ map:
 options:
   eula: true
   motd: Spawn Point Legendary Server
+  online_mode: true
   level_name: Spawn Point Legendary
 schema:
   eula: bool
   motd: str
+  online_mode: bool
   level_name: str
-image: "ghcr.io/aph-le/{arch}-addon-spawn-point-legendary"
+#image: "ghcr.io/aph-le/{arch}-addon-spawn-point-legendary"
