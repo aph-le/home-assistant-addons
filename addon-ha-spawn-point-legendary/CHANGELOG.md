@@ -2,5 +2,6 @@
 
 ## 2024.1.0 - Initial release
 
-- Used ubuntu stable image as base
-- Add an apparmor profile
+- Initial release
+- PaperMC version: 1.20.4 build: 361
+- Java version: OpenJDK 17
