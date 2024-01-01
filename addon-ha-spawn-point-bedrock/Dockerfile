@@ -16,8 +16,8 @@ COPY rootfs /
 
 # Corrects permissions for s6 v3
 RUN if [ -d /etc/services.d ]; then chmod -R 755 /etc/services.d; fi && \
-    if [ -d /etc/services.d/example ]; then chmod -R 755 /etc/services.d/example; fi && \
-    if [ -f /etc/services.d/example/banner.sh ]; then chmod 755 /etc/services.d/example/banner.sh; fi
+    if [ -d /etc/services.d/ha-spawn-point-bedrock ]; then chmod -R 755 /etc/services.d/ha-spawn-point-bedrock; fi && \
+    if [ -f /etc/services.d/ha-spawn-point-bedrock/banner.sh ]; then chmod 755 /etc/services.d/ha-spawn-point-bedrock/banner.sh; fi
 
 ############
 # 5 Labels #
@@ -41,7 +41,7 @@ LABEL \
     org.opencontainers.image.description="${BUILD_DESCRIPTION}" \
     org.opencontainers.image.vendor="Home Assistant Add-ons" \
     org.opencontainers.image.authors="aph-le (https://github.com/aph-le)" \
-    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.licenses="Apache" \
     org.opencontainers.image.url="https://github.com/aph-le" \
     org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
     org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/README.md" \

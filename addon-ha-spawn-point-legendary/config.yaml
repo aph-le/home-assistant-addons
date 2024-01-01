@@ -1,0 +1,22 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: HA Spawn Point Legendary
+version: "2024.1.0"
+slug: ha-spawn-point-legendary
+description: Minecraft Server Legendary Addon Java/Geyser/Floodgate Edition
+url: "https://github.com/aph-le/home-assistant-addons/tree/main/addon-ha-spawn-point-legendary"
+arch:
+  - amd64
+  - aarch64
+host_network: true
+init: false
+map:
+  - addons:rw
+options:
+  eula: true
+  motd: Spawn Point Legendary Server
+  level_name: Spawn Point Legendary
+schema:
+  eula: bool
+  motd: str
+  level_name: str
+#image: "ghcr.io/aph-le/{arch}-addon-spawn-point-legendary"

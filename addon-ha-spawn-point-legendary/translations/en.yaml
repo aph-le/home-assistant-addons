@@ -1,0 +1,7 @@
+configuration:
+  eula:
+    name: EULA
+    description: End User License Agreement - has to be on for starting the server. See https://minecraft.net/terms
+  motd:
+    name: Server Message / Bedrock Server Name
+    description: The message of the day, displayed in the server list. (motd)
