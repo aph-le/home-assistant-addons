@@ -65,7 +65,7 @@ fi
 
 if [[ ! -f "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" ]]; then
   bashio::log.yellow "Download ${DOWNLOAD_FILE} started ... please wait"
-  curl "${DOWNLOAD_URL}" -o "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -# > /dev/null 2>&1
+  curl "${DOWNLOAD_URL}" -o "${DOWNLOAD_SAVE_DIR}/${DOWNLOAD_FILE}" -# -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" > /dev/null 2>&1
 else
   bashio::log.green "${DOWNLOAD_FILE} already downloaded"
 fi
