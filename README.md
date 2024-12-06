@@ -1,15 +1,15 @@
-# Home Assistant Addons Repository - aph-le
+# Home Assistant Addons Repository - RobertVPettigrew
 
-![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/aph-le/home-assistant-addons/main?style=plastic&logo=Github)
-![GitHub repo size](https://img.shields.io/github/repo-size/aph-le/home-assistant-addons?style=plastic&logo=Github)
-![GitHub language count](https://img.shields.io/github/languages/count/aph-le/home-assistant-addons?style=plastic&logo=Github)
-![GitHub top language](https://img.shields.io/github/languages/top/aph-le/home-assistant-addons?style=plastic&logo=Github)
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/aph-le/home-assistant-addons/main?style=plastic&logo=Github)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/RobertVPettigrew/Java-MC-Homeasistant-Addon/main?style=plastic&logo=Github)
+![GitHub repo size](https://img.shields.io/github/repo-size/RobertVPettigrew/Java-MC-Homeasistant-Addon?style=plastic&logo=Github)
+![GitHub language count](https://img.shields.io/github/languages/count/RobertVPettigrew/Java-MC-Homeasistant-Addon?style=plastic&logo=Github)
+![GitHub top language](https://img.shields.io/github/languages/top/RobertVPettigrew/Java-MC-Homeasistant-Addon?style=plastic&logo=Github)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/RobertVPettigrew/Java-MC-Homeasistant-Addon/main?style=plastic&logo=Github)
 
 This repository contains several custom Home Assistans Addons for education, testing and more.
 To add this to your Home Assistant instance you can use the button below.
 
-[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Faph-le%2Fhome-assistant-addons)
+[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FRobertVPettigrew%2FJava-MC-Homeasistant-Addon)
 
 <!--
 Add-on documentation: <https://developers.home-assistant.io/docs/add-ons>
@@ -59,7 +59,7 @@ Notes to developers after forking or using the github template feature:
 [i386-shield]: https://img.shields.io/badge/i386-yes-green?style=plastic
 
 #### References
-
+- Thanks to [aph-le] (https://github.com/aph-le/home-assistant-addons) for this project
 - Thanks to [itzg](https://github.com/itzg/docker-minecraft-bedrock-server) for the minecraft server docker image inspiration.
 - Thanks to [williamcorsel](https://github.com/williamcorsel/hassio-addons) for the home assistant minecraft addon inspiration.
 - Thanks to [TheRemote](https://github.com/TheRemote/Legendary-Java-Minecraft-Geyser-Floodgate) for the minecraft Java/Geyser/Floddgate inspiration.
