@@ -455,6 +455,11 @@
     "download": "https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.50.03.zip"
   },
   {
+    "bedrock_version": "1.21.120",
+    "server_version": "1.21.120.4",
+    "download": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.21.120.4.zip"
+  },
+  {
     "bedrock_version": "LATEST",
     "server_version": "1.21.120.4",
     "download": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.21.120.4.zip"
