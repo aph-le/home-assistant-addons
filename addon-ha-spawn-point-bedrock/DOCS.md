@@ -9,7 +9,7 @@ This add-on downloads and starts a Minecraft Bedrock server.
 In the configuration can be defines which Bedrock Version of the Server should be started.
 Just use the version number, e.g. 1.20.41. If you use _LATEST_ the latest known version will be started.
 
-**LATEST** - 1.20.50
+**LATEST** - 1.21.120
 
 ## Version Schema
 
