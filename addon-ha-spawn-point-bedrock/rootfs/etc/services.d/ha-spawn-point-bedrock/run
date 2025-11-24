@@ -37,12 +37,16 @@ if [[ ${EULA^^} != TRUE ]]; then
 fi
 
 if [[ "$RUN_VERSION" = "LATEST" ]]; then
-  curl https://mc-bds-helper.vercel.app/api/latest -o /data/latest_version_download_link.txt > /dev/null 2>&1
-  if [[ -f "/data/latest_version_download_link.txt" ]]; then
-    DOWNLOAD_URL=$(cat /data/latest_version_download_link.txt)
-    bashio::log.green "Download URL '${DOWNLOAD_URL}'"
+  API_URL="https://net-secondary.web.minecraft-services.net/api/v1.0/download/links"
+  DATA=$(curl -fsSL "$API_URL")
+  DOWNLOAD_URL=$(echo "$DATA" | jq -r '.result.links[] | select(.downloadType == "serverBedrockLinux") | .downloadUrl')
+
+  #curl https://mc-bds-helper.vercel.app/api/latest -o /data/latest_version_download_link.txt > /dev/null 2>&1
+  #if [[ -f "/data/latest_version_download_link.txt" ]]; then
+  #  DOWNLOAD_URL=$(cat /data/latest_version_download_link.txt)
+  bashio::log.green "Download URL '${DOWNLOAD_URL}'"
     #DOWNLOAD_URL=https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.41.02.zip
-  fi
+  #fi
 else
   DOWNLOAD_URL=$(hasp::version "${RUN_VERSION}")
   bashio::log.yellow "Download URL ${DOWNLOAD_URL}"

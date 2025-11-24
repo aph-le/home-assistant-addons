@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 2024.11.2
+
+- Fixed Download for LATEST Version to use url for fetching the latest version
+
 ## 2024.10.0
 
 - Fixed Download for LATEST Version to use User-Agent for curl
