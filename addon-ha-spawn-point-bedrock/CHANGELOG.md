@@ -1,5 +1,10 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 2026.08.0
+
+- Added new config entry `allow_cheats` (allow-cheats) so cheats/commands can actually be enabled.
+
+
 ## 2024.11.2
 
 - Fixed Download for LATEST Version to use url for fetching the latest version

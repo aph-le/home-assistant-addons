@@ -20,6 +20,12 @@ configuration:
   gamemode:
     name: Gamemode
     description: Game mode for new players. (gamemode)
+  allow_cheats:
+    name: Allow Cheats
+    description: >-
+      If true, cheats (commands) can be used on the server. Note that even
+      players with operator permission cannot use commands while this is
+      disabled. (allow-cheats)
   online_mode:
     name: Require Xbox Live Account
     description: Require Xbox Live authentication for clients. (online-mode)
