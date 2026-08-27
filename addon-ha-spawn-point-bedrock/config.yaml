@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: HA Spawn Point Bedrock
-version: "2025.11.2"
+version: "2026.08.0"
 slug: ha-spawn-point-bedrock
 description: Minecraft Server Addon Bedrock Edition
 url: "https://github.com/aph-le/home-assistant-addons/tree/main/addon-ha-spawn-point-bedrock"
@@ -20,6 +20,7 @@ options:
   max_players: 10
   gamemode: survival
   difficulty: easy
+  allow_cheats: false
   allow_list: false
   allow_user:
     - name: "PlayerOne"
@@ -37,6 +38,7 @@ schema:
   max_players: int(1,)
   gamemode: list(survival|creative|adventure)
   difficulty: list(peaceful|easy|normal|hard)
+  allow_cheats: bool
   allow_list: bool
   allow_user:
     - name: str
